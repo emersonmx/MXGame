@@ -19,34 +19,34 @@
  * along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <stdbool.h>
-#include <mxgame/util/geometry.h>
+#ifndef _MXGAME__H
+#define _MXGAME_RENDER_H
+
 #include <mxgame/window/window.h>
 
-struct mxgame_window_t
+typedef struct mxgame_render_t
 {
     Window root;
     Window window;
+    GLint window_mask;
     Display* display;
     int screen;
 
     XVisualInfo* visual_info;
     Colormap color_map;
-    XSetWindowAttributes set_window_attrubutes;
-    XF86VidModeModeInfo desktop_mode;
+    XSetWindowAttributes window_attributes;
+    //XF86VidModeModeInfo desktop_mode;
 
     GLXFBConfig* fb_configs;
     GLXWindow glx_window;
-    GLXContex context;
+    GLXContext context;
     int* attributes;
+} mxgame_render;
 
-    char* caption;
-    void* icon;
+mxgame_render* mxgame_render_create(mxgame_window_descriptor* descriptor,
+                                    int* attributes);
+void mxgame_render_destroy(mxgame_render* render);
 
-    int width;
-    int height;
-    int depth;
-    bool fullscreen;
-    bool double_buffered;
-};
+inline int* mxgame_render_attributes(mxgame_render* render);
 
+#endif /* _MXGAME_RENDER_H */
