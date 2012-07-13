@@ -3,3 +3,5 @@
 *.swp
 *.tar.gz
 *.in~
+/.cproject
+/.project
