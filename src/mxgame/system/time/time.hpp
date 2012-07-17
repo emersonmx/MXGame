@@ -1,20 +1,12 @@
-#ifndef MXGAME_SYSTEM_TIME_HPP_
-#define MXGAME_SYSTEM_TIME_HPP_
-
-#include <ctime>
+#ifndef MXGAME_SYSTEM_TIME_TIME_H_
+#define MXGAME_SYSTEM_TIME_TIME_H_
 
 namespace mxgame {
+namespace Time {
 
-class Time {
-    public:
-        Time();
-        unsigned ticks() const;
-        void Delay(unsigned milliseconds);
+unsigned GetTicks();
+void Delay(unsigned milliseconds);
 
-    private:
-        struct timeval start_time_;
-
-};
-
+} /* namespace Time */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_HPP_ */
+#endif /* MXGAME_SYSTEM_TIME_TIME_H_ */
