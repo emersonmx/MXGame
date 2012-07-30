@@ -1,5 +1,5 @@
-#ifndef MXGAME_SYSTEM_TIME_CLOCK_H_
-#define MXGAME_SYSTEM_TIME_CLOCK_H_
+#ifndef MXGAME_SYSTEM_TIME_CLOCK_HPP_
+#define MXGAME_SYSTEM_TIME_CLOCK_HPP_
 
 #include "mxgame/system/time/time.hpp"
 
@@ -20,4 +20,5 @@ class Clock {
 
 } /* namespace Time */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_CLOCK_H_ */
+#endif /* MXGAME_SYSTEM_TIME_CLOCK_HPP_ */
+
