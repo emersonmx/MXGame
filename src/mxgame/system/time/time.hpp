@@ -1,5 +1,5 @@
-#ifndef MXGAME_SYSTEM_TIME_TIME_H_
-#define MXGAME_SYSTEM_TIME_TIME_H_
+#ifndef MXGAME_SYSTEM_TIME_TIME_HPP_
+#define MXGAME_SYSTEM_TIME_TIME_HPP_
 
 namespace mxgame {
 namespace Time {
@@ -9,4 +9,5 @@ void Delay(unsigned milliseconds);
 
 } /* namespace Time */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_TIME_H_ */
+#endif /* MXGAME_SYSTEM_TIME_TIME_HPP_ */
+
