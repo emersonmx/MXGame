@@ -8,14 +8,24 @@ namespace Time {
 
 class Clock {
     public:
-        Clock() : time_(0), last_ticks_(GetTicks()) {}
+        static const unsigned DEFAULT_FRAMERATE = 30;
+
+        Clock(unsigned framerate=DEFAULT_FRAMERATE)
+                : time_(0), last_ticks_(GetTicks()), framerate_(framerate) {}
 
         inline unsigned time() const { return time_; }
-        unsigned Ticks(unsigned framerate);
+        inline unsigned framerate() const { return framerate_; }
+        inline void set_framerate(unsigned framerate) {
+            framerate_ = framerate;
+        }
+
+        unsigned Ticks();
 
     private:
         unsigned time_;
         unsigned last_ticks_;
+
+        unsigned framerate_;
 };
 
 } /* namespace Time */
