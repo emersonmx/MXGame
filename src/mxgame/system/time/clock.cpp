@@ -3,12 +3,12 @@
 namespace mxgame {
 namespace Time {
 
-unsigned Clock::Ticks(unsigned framerate) {
-    if (framerate == 0) {
-        framerate = 1;
+unsigned Clock::Ticks() {
+    if (framerate_ == 0) {
+        framerate_ = 1;
     }
 
-    time_ = 1000.f / framerate;
+    time_ = 1000.f / framerate_;
 
     unsigned delta = GetTicks() - last_ticks_;
 
