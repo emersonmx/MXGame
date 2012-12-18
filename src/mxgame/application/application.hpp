@@ -19,8 +19,8 @@
   along with pong.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_APPLICATION_APPLICATION_H_
-#define MXGAME_APPLICATION_APPLICATION_H_
+#ifndef MXGAME_APPLICATION_APPLICATION_HPP_
+#define MXGAME_APPLICATION_APPLICATION_HPP_
 
 namespace mxgame {
 
@@ -47,5 +47,5 @@ class Application {
 };
 
 } /* namespace mxgame */
-#endif /* MXGAME_APPLICATION_APPLICATION_H_ */
+#endif /* MXGAME_APPLICATION_APPLICATION_HPP_ */
 
