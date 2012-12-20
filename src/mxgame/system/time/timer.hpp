@@ -3,7 +3,7 @@
 
   Author: Emerson Max de Medeiros Silva <emersonmx@gmail.com>
 
-  Based on the LazyFoo class Timer.
+  Implementation of Timer based on the class Timer of LazyFoo.
 
   This file is part of mxgame.
 
@@ -25,6 +25,7 @@
 #define MXGAME_SYSTEM_TIME_TIMER_HPP_
 
 namespace mxgame {
+namespace Time {
 
 class Timer {
     public:
@@ -47,6 +48,7 @@ class Timer {
         bool started_;
 };
 
+} /* namespace Time */
 } /* namespace mxgame */
 #endif /* MXGAME_SYSTEM_TIME_TIMER_HPP_ */
 
