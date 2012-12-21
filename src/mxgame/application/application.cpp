@@ -19,7 +19,7 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "mxgame/application/application.h"
+#include "mxgame/application/application.hpp"
 
 namespace mxgame {
 

@@ -1,7 +1,19 @@
+# Compiled Object files
+*.slo
+*.lo
 *.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
 *.a
+
+# vim files
 *.swp
+tags
+
+# Packages
 *.tar.gz
-*.in~
-/.cproject
-/.project
