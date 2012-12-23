@@ -29,8 +29,6 @@ class Application {
         Application() : error_code_(0), running_(true) {}
         virtual ~Application() {}
 
-        inline bool running() const { return running_; }
-
         void Exit(int error_code);
         int Run();
 
