@@ -8,8 +8,9 @@ APPLICATION_TARGET=libmxgame_application.a
 APPLICATION_SOURCES=$(wildcard src/mxgame/application/*.cpp)
 
 SYSTEM_TARGET=libmxgame_system.a
-SYSTEM_SOURCES=src/mxgame/system/time/clock.cpp \
-			   src/mxgame/system/time/system_time.cpp
+SYSTEM_SOURCES=src/mxgame/system/time/clock.cpp
+SYSTEM_SOURCES+=src/mxgame/system/time/system_time.cpp
+#SYSTEM_SOURCES+=src/mxgame/system/time/boost_time.cpp
 
 # Objects
 APPLICATION_OBJECTS=$(patsubst %.cpp,%.o,$(APPLICATION_SOURCES))
