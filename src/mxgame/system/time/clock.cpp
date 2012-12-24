@@ -30,7 +30,7 @@ Clock::Clock(Timer* timer, unsigned short framerate)
 }
 
 
-unsigned long Clock::ticks() {
+unsigned long Clock::tick() {
     if (framerate_ == 0) {
         framerate_ = 1;
     }

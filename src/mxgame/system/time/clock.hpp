@@ -38,7 +38,7 @@ class Clock {
             framerate_ = framerate;
         }
 
-        unsigned long ticks();
+        unsigned long tick();
 
         void Reset();
 
