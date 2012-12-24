@@ -20,32 +20,31 @@
 */
 
 #include <cstdlib>
-#include <sys/time.h>
 #include <unistd.h>
-#include "mxgame/system/time/time.hpp"
+#include "mxgame/system/time/system_timer.hpp"
 
 namespace mxgame {
-namespace Time {
 
-static struct timeval StartTime() {
-    struct timeval now;
-    gettimeofday(&now, NULL);
-    return now;
+SystemTimer::SystemTimer() {
+    Reset();
 }
 
-static struct timeval start_time = StartTime();
-
-unsigned GetTicks() {
+unsigned long SystemTimer::ticks() {
     struct timeval now;
+
     gettimeofday(&now, NULL);
-    return (now.tv_sec - start_time.tv_sec) * 1000 +
-           (now.tv_usec - start_time.tv_usec) / 1000;
+
+    return (now.tv_sec - start_time_.tv_sec) * 1000 +
+           (now.tv_usec - start_time_.tv_usec) / 1000;
 }
 
-void Delay(unsigned milliseconds) {
+void SystemTimer::Reset() {
+    gettimeofday(&start_time_, NULL);
+}
+
+void SystemTimer::Delay(unsigned long milliseconds) {
     usleep(milliseconds * 1000);
 }
 
-} /* namespace Time */
 } /* namespace mxgame */
 

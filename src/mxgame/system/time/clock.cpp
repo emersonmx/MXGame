@@ -22,28 +22,39 @@
 #include "mxgame/system/time/clock.hpp"
 
 namespace mxgame {
-namespace Time {
 
-unsigned Clock::Ticks() {
+Clock::Clock(Timer* timer, unsigned short framerate)
+        : timer_(timer), framerate_(framerate) {
+
+    Reset();
+}
+
+
+unsigned long Clock::ticks() {
     if (framerate_ == 0) {
         framerate_ = 1;
     }
 
     time_ = 1000.f / framerate_;
 
-    unsigned delta = GetTicks() - last_ticks_;
+    unsigned long delta = timer_->ticks() - last_ticks_;
 
     if (delta < time_) {
-        Delay(time_ - delta);
+        timer_->Delay(time_ - delta);
     } else {
         time_ = delta;
     }
 
-    last_ticks_ = GetTicks();
+    last_ticks_ = timer_->ticks();
 
     return time_;
 }
 
-} /* namespace Time */
+void Clock::Reset() {
+    timer_->Reset();
+    time_ = 0L;
+    last_ticks_ = 0L;
+}
+
 } /* namespace mxgame */
 

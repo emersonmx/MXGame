@@ -19,33 +19,21 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/chrono.hpp>
-#include <boost/asio.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp>
-#include "mxgame/system/time/time.hpp"
+#ifndef MXGAME_SYSTEM_TIME_TIMER_HPP_
+#define MXGAME_SYSTEM_TIME_TIMER_HPP_
 
 namespace mxgame {
-namespace Time {
 
-using namespace boost;
+class Timer {
+    public:
+        virtual ~Timer() {}
 
-typedef chrono::duration<unsigned, milli> milliseconds;
+        virtual unsigned long ticks() = 0;
 
-static asio::io_service io;
-static asio::deadline_timer timer(io);
-static chrono::steady_clock::time_point start(chrono::steady_clock::now());
+        virtual void Reset() = 0;
+        virtual void Delay(unsigned long milliseconds) = 0;
+};
 
-unsigned GetTicks() {
-    milliseconds ms =
-        chrono::round<milliseconds>(chrono::steady_clock::now() - start);
-    return ms.count();
-}
-
-void Delay(unsigned milliseconds) {
-    timer.expires_from_now(posix_time::milliseconds(milliseconds));
-    timer.wait();
-}
-
-} /* namespace Time */
 } /* namespace mxgame */
+#endif /* MXGAME_SYSTEM_TIME_TIMER_HPP_ */
 

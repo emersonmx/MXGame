@@ -19,38 +19,33 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_TIME_CLOCK_HPP_
-#define MXGAME_SYSTEM_TIME_CLOCK_HPP_
-
-#include "mxgame/system/time/timer.hpp"
+#include "mxgame/system/time/boost_timer.hpp"
 
 namespace mxgame {
 
-class Clock {
-    public:
-        static const unsigned short DEFAULT_FRAMERATE = 30;
+typedef boost::chrono::duration<unsigned, boost::milli> milliseconds;
 
-        Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE);
+BoostTimer::BoostTimer()
+        : timer_(io_) {
+    Reset();
+}
 
-        inline unsigned long time() const { return time_; }
-        inline unsigned short framerate() const { return framerate_; }
-        inline void set_framerate(unsigned short framerate) {
-            framerate_ = framerate;
-        }
+unsigned long BoostTimer::ticks() {
+    milliseconds ms =
+        boost::chrono::round<milliseconds>(
+                boost::chrono::steady_clock::now() - start_time_);
 
-        unsigned long ticks();
+    return ms.count();
+}
 
-        void Reset();
+void BoostTimer::Reset() {
+    start_time_ = boost::chrono::steady_clock::now();
+}
 
-    private:
-        Timer* timer_;
-
-        unsigned long time_;
-        unsigned long last_ticks_;
-
-        unsigned short framerate_;
-};
+void BoostTimer::Delay(unsigned long milliseconds) {
+    timer_.expires_from_now(boost::posix_time::milliseconds(milliseconds));
+    timer_.wait();
+}
 
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_CLOCK_HPP_ */
 

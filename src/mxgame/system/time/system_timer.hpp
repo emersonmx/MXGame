@@ -19,38 +19,27 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_TIME_CLOCK_HPP_
-#define MXGAME_SYSTEM_TIME_CLOCK_HPP_
+#ifndef MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
+#define MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
 
+#include <sys/time.h>
 #include "mxgame/system/time/timer.hpp"
 
 namespace mxgame {
 
-class Clock {
+class SystemTimer: public Timer {
     public:
-        static const unsigned short DEFAULT_FRAMERATE = 30;
+        SystemTimer();
 
-        Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE);
+        virtual unsigned long ticks();
 
-        inline unsigned long time() const { return time_; }
-        inline unsigned short framerate() const { return framerate_; }
-        inline void set_framerate(unsigned short framerate) {
-            framerate_ = framerate;
-        }
-
-        unsigned long ticks();
-
-        void Reset();
+        virtual void Reset();
+        virtual void Delay(unsigned long milliseconds);
 
     private:
-        Timer* timer_;
-
-        unsigned long time_;
-        unsigned long last_ticks_;
-
-        unsigned short framerate_;
+        struct timeval start_time_;
 };
 
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_CLOCK_HPP_ */
+#endif /* MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_ */
 
