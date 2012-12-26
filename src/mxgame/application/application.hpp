@@ -26,7 +26,7 @@ namespace mxgame {
 
 class Application {
     public:
-        Application() : error_code_(0), running_(true) {}
+        Application() : error_code_(0), running_(false) {}
         virtual ~Application() {}
 
         void Exit(int error_code);
