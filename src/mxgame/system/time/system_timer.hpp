@@ -27,7 +27,7 @@
 
 namespace mxgame {
 
-class SystemTimer: public Timer {
+class SystemTimer : public Timer {
     public:
         SystemTimer();
 

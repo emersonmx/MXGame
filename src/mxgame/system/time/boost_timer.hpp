@@ -29,7 +29,7 @@
 
 namespace mxgame {
 
-class BoostTimer: public Timer {
+class BoostTimer : public Timer {
     public:
         BoostTimer();
 
