@@ -21,6 +21,7 @@
 
 #include <cstdlib>
 #include <unistd.h>
+
 #include "mxgame/system/time/system_timer.hpp"
 
 namespace mxgame {

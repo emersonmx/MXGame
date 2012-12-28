@@ -22,9 +22,9 @@
 #ifndef MXGAME_SYSTEM_TIME_CLOCK_HPP_
 #define MXGAME_SYSTEM_TIME_CLOCK_HPP_
 
-#include "mxgame/system/time/timer.hpp"
-
 namespace mxgame {
+
+class Timer;
 
 class Clock {
     public:

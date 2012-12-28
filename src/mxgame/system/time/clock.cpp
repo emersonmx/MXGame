@@ -20,6 +20,7 @@
 */
 
 #include "mxgame/system/time/clock.hpp"
+#include "mxgame/system/time/timer.hpp"
 
 namespace mxgame {
 
