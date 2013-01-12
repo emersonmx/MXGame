@@ -22,7 +22,7 @@
 #ifndef MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
 #define MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
 
-#include <sys/time.h>
+#include <ctime>
 #include "mxgame/system/time/timer.hpp"
 
 namespace mxgame {
