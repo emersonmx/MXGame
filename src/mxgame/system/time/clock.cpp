@@ -1,8 +1,6 @@
 /*
   Copyright 2012 Emerson Max de Medeiros Silva
 
-  Author: Emerson Max de Medeiros Silva <emersonmx@gmail.com>
-
   This file is part of pong.
 
   pong is free software: you can redistribute it and/or modify
