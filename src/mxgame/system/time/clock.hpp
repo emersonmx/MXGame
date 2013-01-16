@@ -1,5 +1,5 @@
 /*
-  Copyright 2012 Emerson Max de Medeiros Silva
+  Copyright 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
