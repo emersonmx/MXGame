@@ -11,9 +11,32 @@
 *.la
 *.a
 
-# vim files
+# Vim files
 *.swp
 tags
 
+# Git files
+*.orig
+
 # Packages
 *.tar.gz
+
+# Project files
+autom4te.cache/
+configure
+aclocal.m4
+m4/
+build-aux/
+config.log
+config.status
+libtool
+src/mxgame/config.h
+src/mxgame/stamp-h1
+src/mxgame/config.h.in
+src/mxgame/config.h.in~
+src/.deps/
+Makefile
+src/Makefile
+test/Makefile
+Makefile.in*
+config.guess
