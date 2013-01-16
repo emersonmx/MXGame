@@ -30,10 +30,8 @@ class BaseApplication : public Application {
         BaseApplication()
                 : count_(0), max_count_(10) {}
     protected:
-        virtual bool Initialize() {
+        virtual void Initialize() {
             printf("Initialize()\n");
-
-            return true;
         }
         virtual void Finalize() throw() {
             printf("Finalize()\n");
@@ -70,21 +68,21 @@ class BaseApplication : public Application {
 
 class SystemTimerApplication : public BaseApplication {
     protected:
-        virtual bool Initialize() {
+        virtual void Initialize() {
             timer_ = new SystemTimer();
             timer_->Reset();
             clock_ = new Clock(timer_);
-            return BaseApplication::Initialize();
+            BaseApplication::Initialize();
         }
 };
 
 class BoostTimerApplication : public BaseApplication {
     protected:
-        virtual bool Initialize() {
+        virtual void Initialize() {
             timer_ = new BoostTimer();
             timer_->Reset();
             clock_ = new Clock(timer_);
-            return BaseApplication::Initialize();
+            BaseApplication::Initialize();
         }
 };
 

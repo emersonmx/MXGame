@@ -25,7 +25,7 @@
 namespace mxgame {
 
 Application::Application()
-        : error_code_(kNoError), running_(false) {}
+        : error_code_(kNoError), running_(true) {}
 
 Application::~Application() {
 }
@@ -37,7 +37,7 @@ void Application::Exit(int error_code) {
 
 void Application::Run() {
     try {
-        running_ = Initialize();
+        Initialize();
 
         while (running_) {
             Update();

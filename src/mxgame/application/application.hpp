@@ -45,7 +45,7 @@ class Application {
         virtual void Log(const char* message);
 
     protected:
-        virtual bool Initialize() = 0;
+        virtual void Initialize() = 0;
         virtual void Finalize() throw() = 0;
 
         virtual void Update() = 0;

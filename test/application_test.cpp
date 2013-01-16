@@ -29,11 +29,9 @@ class ApplicationTest : public Application {
                 : max_count_(max_count) {}
 
     protected:
-        virtual bool Initialize() {
+        virtual void Initialize() {
             printf("Initialize()\n");
             count_ = 0;
-
-            return true;
         }
 
         virtual void Finalize() throw() {
