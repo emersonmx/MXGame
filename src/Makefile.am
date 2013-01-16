@@ -1,5 +1,5 @@
-AM_CPPFLAGS = -Wall
-AM_LDFLAGS =
+AM_CPPFLAGS = \
+	-Wall
 
 lib_LIBRARIES = \
 	libmxgame_system.a \
