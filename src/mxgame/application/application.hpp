@@ -37,9 +37,15 @@ class Application {
         virtual ~Application();
 
         inline int error_code() const { return error_code_; }
+        inline void set_error_code(int error_code) { error_code_ = error_code; }
         inline bool has_error() const { return error_code_ != kNoError; }
+        inline bool running() const { return running_; }
+        inline void set_running(bool running) { running_ = running; }
 
-        void Exit(int error_code=kNoError);
+        inline void Exit(int error_code=kNoError) {
+            set_error_code(error_code);
+            set_running(false);
+        }
         void Run();
 
         virtual void Log(const char* message);

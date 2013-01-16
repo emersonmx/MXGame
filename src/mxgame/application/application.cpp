@@ -30,11 +30,6 @@ Application::Application()
 Application::~Application() {
 }
 
-void Application::Exit(int error_code) {
-    error_code_ = error_code;
-    running_ = false;
-}
-
 void Application::Run() {
     try {
         Initialize();
