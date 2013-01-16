@@ -17,26 +17,49 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <cstdio>
+
 #include "mxgame/application/application.hpp"
+#include "mxgame/application/exception/exception.hpp"
 
 namespace mxgame {
+
+Application::Application()
+        : error_code_(kNoError), running_(false) {}
+
+Application::~Application() {
+}
 
 void Application::Exit(int error_code) {
     error_code_ = error_code;
     running_ = false;
 }
 
-int Application::Run() {
-    running_ = Initialize();
+void Application::Run() {
+    try {
+        running_ = Initialize();
 
-    while (running_) {
-        Update();
-        Render();
+        while (running_) {
+            Update();
+            Render();
+        }
+    } catch (Exception& exception) {
+        Log(exception.what());
+        Exit(kApplicationError);
+    } catch (std::exception& exception) {
+        Log(exception.what());
+        Exit(kInternalError);
+    } catch (...) {
+        Log("An error ocurred while running the application");
+        Exit(kUnknownError);
     }
 
     Finalize();
+}
 
-    return error_code_;
+
+void Application::Log(const char* message) {
+    printf("%s\n", message);
 }
 
 } /* namespace mxgame */

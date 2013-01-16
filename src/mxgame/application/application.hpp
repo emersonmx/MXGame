@@ -20,19 +20,33 @@
 #ifndef MXGAME_APPLICATION_APPLICATION_HPP_
 #define MXGAME_APPLICATION_APPLICATION_HPP_
 
+#include <exception>
+
 namespace mxgame {
 
 class Application {
     public:
-        Application() : error_code_(0), running_(false) {}
-        virtual ~Application() {}
+        typedef enum {
+            kNoError,
+            kApplicationError,
+            kInternalError,
+            kUnknownError
+        } ErrorCodeType;
+
+        Application();
+        virtual ~Application();
+
+        inline int error_code() const { return error_code_; }
+        inline bool has_error() const { return error_code_ != kNoError; }
 
         void Exit(int error_code);
-        int Run();
+        void Run();
+
+        virtual void Log(const char* message);
 
     protected:
         virtual bool Initialize() = 0;
-        virtual void Finalize() = 0;
+        virtual void Finalize() throw() = 0;
 
         virtual void Update() = 0;
         virtual void Render() = 0;

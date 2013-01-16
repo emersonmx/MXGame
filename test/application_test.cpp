@@ -18,9 +18,12 @@
 */
 
 #include <cstdio>
-#include <mxgame/application/application.hpp>
+#include "mxgame/application/application.hpp"
+#include "mxgame/application/exception/exception.hpp"
 
-class ApplicationTest : public mxgame::Application {
+using namespace mxgame;
+
+class ApplicationTest : public Application {
     public:
         ApplicationTest(int max_count)
                 : max_count_(max_count) {}
@@ -33,7 +36,7 @@ class ApplicationTest : public mxgame::Application {
             return true;
         }
 
-        virtual void Finalize() {
+        virtual void Finalize() throw() {
             printf("Finalize()\n");
         }
 
@@ -51,18 +54,44 @@ class ApplicationTest : public mxgame::Application {
             printf("%d. Render()\n", count_);
         }
 
-    private:
         int count_;
         int max_count_;
 };
 
+class ApplicationTestError : public ApplicationTest {
+    public:
+        ApplicationTestError(int max_count)
+                : ApplicationTest(max_count) {}
+
+    protected:
+        virtual void Update() {
+            ApplicationTest::Update();
+
+            if (count_ > max_count_ / 2) {
+                throw Exception("Exception occurred - "
+                                "Update(): count > max_count_ / 2");
+            }
+        }
+};
+
 int main() {
-    mxgame::Application* app = new ApplicationTest(10);
+    int error_code;
+    Application* application = new ApplicationTest(10);
 
-    int error_code = app->Run();
+    application->Run();
+    error_code = application->error_code();
+    printf("Error: %d\n", error_code);
 
-    delete app;
+    delete application;
 
-    return error_code;
+    application = new ApplicationTestError(10);
+
+    application->Run();
+    error_code = application->error_code();
+    printf("Error: %d\n", error_code);
+
+    delete application;
+
+    return 0;
 }
 

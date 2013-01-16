@@ -21,11 +21,23 @@
 #define MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_
 
 #include <exception>
+#include <string>
 
 namespace mxgame {
 
 class Exception : public std::exception {
-}
+    public:
+        Exception(const std::string& message)
+                : message_(message) {}
+
+        virtual ~Exception() throw() {}
+        virtual const char* what() const throw() {
+            return message_.c_str();
+        }
+
+    private:
+        std::string message_;
+};
 
 } /* namespace mxgame */
 #endif /* MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_ */
