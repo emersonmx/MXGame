@@ -39,7 +39,7 @@ class Application {
         inline int error_code() const { return error_code_; }
         inline bool has_error() const { return error_code_ != kNoError; }
 
-        void Exit(int error_code);
+        void Exit(int error_code=kNoError);
         void Run();
 
         virtual void Log(const char* message);
