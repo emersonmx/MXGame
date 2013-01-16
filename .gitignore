@@ -36,6 +36,7 @@ src/mxgame/config.h.in
 src/mxgame/config.h.in~
 src/.deps/
 test/.deps/
+test/application_test
 Makefile
 src/Makefile
 test/Makefile
