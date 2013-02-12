@@ -20,23 +20,14 @@
 #ifndef MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_
 #define MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_
 
-#include <exception>
-#include <string>
+#include <stdexcept>
 
 namespace mxgame {
 
-class Exception : public std::exception {
+class Exception : public std::logic_error {
     public:
-        Exception(const std::string& message)
-                : message_(message) {}
-
-        virtual ~Exception() throw() {}
-        virtual const char* what() const throw() {
-            return message_.c_str();
-        }
-
-    private:
-        std::string message_;
+        explicit Exception(const std::string& message)
+            : std::logic_error(message) {}
 };
 
 } /* namespace mxgame */

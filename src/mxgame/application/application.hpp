@@ -20,32 +20,22 @@
 #ifndef MXGAME_APPLICATION_APPLICATION_HPP_
 #define MXGAME_APPLICATION_APPLICATION_HPP_
 
-#include <exception>
+#include <cstdlib>
 
 namespace mxgame {
 
 class Application {
     public:
-        typedef enum {
-            kNoError,
-            kApplicationError,
-            kInternalError,
-            kUnknownError
-        } ErrorCodeType;
-
         Application();
         virtual ~Application();
 
         inline int error_code() const { return error_code_; }
-        inline void set_error_code(int error_code) { error_code_ = error_code; }
-        inline bool has_error() const { return error_code_ != kNoError; }
-        inline bool running() const { return running_; }
-        inline void set_running(bool running) { running_ = running; }
 
-        inline void Exit(int error_code=kNoError) {
-            set_error_code(error_code);
-            set_running(false);
+        inline void Exit(int error_code=EXIT_SUCCESS) {
+            error_code_ = error_code;
+            running_ = false;
         }
+        void Reset();
         void Run();
 
         virtual void Log(const char* message);

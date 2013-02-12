@@ -44,7 +44,7 @@ class BaseApplication : public Application {
             printf("Ticks: %lu\n", clock_->tick());
 
             if (count_ >= max_count_ - 1) {
-                Exit(kNoError);
+                Exit(EXIT_SUCCESS);
             }
 
             count_++;

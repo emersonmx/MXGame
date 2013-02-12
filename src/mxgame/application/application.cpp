@@ -25,9 +25,14 @@
 namespace mxgame {
 
 Application::Application()
-        : error_code_(kNoError), running_(true) {}
+        : error_code_(EXIT_SUCCESS), running_(true) {}
 
 Application::~Application() {
+}
+
+void Application::Reset() {
+    error_code_ = EXIT_SUCCESS;
+    running_ = true;
 }
 
 void Application::Run() {
@@ -40,18 +45,17 @@ void Application::Run() {
         }
     } catch (Exception& exception) {
         Log(exception.what());
-        Exit(kApplicationError);
+        Exit(EXIT_FAILURE);
     } catch (std::exception& exception) {
         Log(exception.what());
-        Exit(kInternalError);
+        Exit(EXIT_FAILURE);
     } catch (...) {
         Log("An error ocurred while running the application");
-        Exit(kUnknownError);
+        Exit(EXIT_FAILURE);
     }
 
     Finalize();
 }
-
 
 void Application::Log(const char* message) {
     printf("%s\n", message);
