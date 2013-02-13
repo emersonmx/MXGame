@@ -17,8 +17,9 @@
   along with pong.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "mxgame/system/time/clock.hpp"
 #include "mxgame/system/time/timer.hpp"
+
+#include "mxgame/system/time/clock.hpp"
 
 namespace mxgame {
 

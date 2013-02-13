@@ -21,6 +21,7 @@
 #define MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
 
 #include <ctime>
+
 #include "mxgame/system/time/timer.hpp"
 
 namespace mxgame {

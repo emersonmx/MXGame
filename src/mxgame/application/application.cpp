@@ -19,8 +19,9 @@
 
 #include <cstdio>
 
-#include "mxgame/application/application.hpp"
 #include "mxgame/application/exception/exception.hpp"
+
+#include "mxgame/application/application.hpp"
 
 namespace mxgame {
 
