@@ -25,6 +25,7 @@ typedef boost::chrono::duration<unsigned, boost::milli> milliseconds;
 
 BoostTimer::BoostTimer()
         : timer_(io_) {
+
     Reset();
 }
 
