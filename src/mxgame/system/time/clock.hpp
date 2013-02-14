@@ -31,7 +31,9 @@ class Clock {
         Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE);
 
         inline unsigned long time() const { return time_; }
+
         inline unsigned short framerate() const { return framerate_; }
+
         inline void set_framerate(unsigned short framerate) {
             framerate_ = framerate;
         }

@@ -29,6 +29,7 @@ class Timer {
         virtual unsigned long ticks() = 0;
 
         virtual void Reset() = 0;
+
         virtual void Delay(unsigned long milliseconds) = 0;
 };
 

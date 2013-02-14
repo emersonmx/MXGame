@@ -33,6 +33,7 @@ class SystemTimer : public Timer {
         virtual unsigned long ticks();
 
         virtual void Reset();
+
         virtual void Delay(unsigned long milliseconds);
 
     private:

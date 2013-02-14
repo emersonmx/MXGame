@@ -27,6 +27,7 @@ namespace mxgame {
 class Application {
     public:
         Application();
+
         virtual ~Application();
 
         inline int error_code() const { return error_code_; }
@@ -35,16 +36,20 @@ class Application {
             error_code_ = error_code;
             running_ = false;
         }
+
         void Reset();
+
         void Run();
 
         virtual void Log(const char* message);
 
     protected:
         virtual void Initialize() = 0;
+
         virtual void Finalize() throw() = 0;
 
         virtual void Update() = 0;
+
         virtual void Render() = 0;
 
     private:
