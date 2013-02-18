@@ -21,6 +21,10 @@ AC_CONFIG_HEADERS([src/mxgame/config.h])
 AC_CONFIG_FILES([
     Makefile
     src/Makefile
+    src/mxgame/Makefile
+    src/mxgame/application/Makefile
+    src/mxgame/system/Makefile
+    src/mxgame/system/time/Makefile
     test/Makefile
 ])
 AC_OUTPUT

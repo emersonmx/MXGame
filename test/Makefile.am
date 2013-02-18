@@ -10,7 +10,8 @@ AM_CXXFLAGS = \
 	-Wall
 
 AM_LDFLAGS = \
-	-L$(top_srcdir)/src
+	-L$(top_srcdir)/src/mxgame/application \
+	-L$(top_srcdir)/src/mxgame/system/time
 
 application_test_SOURCES = application_test.cpp
 application_test_LDADD = -lmxgame_application
