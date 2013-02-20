@@ -17,8 +17,8 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_
-#define MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_
+#ifndef MXGAME_EXCEPTION_EXCEPTION_HPP_
+#define MXGAME_EXCEPTION_EXCEPTION_HPP_
 
 #include <stdexcept>
 
@@ -31,5 +31,5 @@ class Exception : public std::logic_error {
 };
 
 } /* namespace mxgame */
-#endif /* MXGAME_APPLICATION_EXCEPTION_EXCEPTION_HPP_ */
+#endif /* MXGAME_EXCEPTION_EXCEPTION_HPP_ */
 
