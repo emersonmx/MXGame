@@ -19,7 +19,7 @@
 
 #include <cstdio>
 #include "mxgame/application/application.hpp"
-#include "mxgame/application/exception/exception.hpp"
+#include "mxgame/exception/exception.hpp"
 
 using namespace mxgame;
 
