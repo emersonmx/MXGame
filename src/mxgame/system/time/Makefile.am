@@ -2,11 +2,14 @@ AM_CPPFLAGS = \
 	-Wall \
 	-I$(top_srcdir)/src
 
-lib_LIBRARIES = \
-	libmxgame_system_time.a
+lib_LTLIBRARIES = \
+	libmxgame_system_time.la
 
-libmxgame_system_time_a_SOURCES = \
+libmxgame_system_time_la_SOURCES = \
 	clock.cpp \
 	boost_timer.cpp \
 	system_timer.cpp
+
+libmxgame_system_time_la_LDFLAGS = \
+	-version-info 0:0:0
 

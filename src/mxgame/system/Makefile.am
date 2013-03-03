@@ -1,2 +1,2 @@
-SUBDIRS = time
+SUBDIRS = time window
 

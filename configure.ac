@@ -5,8 +5,8 @@ AM_INIT_AUTOMAKE([-Wall])
 AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
+LT_INIT
 AC_PROG_CXX
-AC_PROG_RANLIB
 
 # Checks for libraries.
 
@@ -25,6 +25,7 @@ AC_CONFIG_FILES([
     src/mxgame/application/Makefile
     src/mxgame/system/Makefile
     src/mxgame/system/time/Makefile
+    src/mxgame/system/window/Makefile
     test/Makefile
 ])
 AC_OUTPUT

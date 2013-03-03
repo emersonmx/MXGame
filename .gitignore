@@ -35,6 +35,7 @@ src/mxgame/stamp-h1
 src/mxgame/config.h.in
 src/mxgame/config.h.in~
 *.deps/
+*.libs/
 test/application_test
 test/system_test
 Makefile

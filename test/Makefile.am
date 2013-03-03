@@ -21,3 +21,4 @@ system_test_LDADD = \
 	-lboost_chrono \
 	-lmxgame_application \
 	-lmxgame_system_time
+
