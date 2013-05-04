@@ -1,5 +1,5 @@
 /*
-  Copyright 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -21,6 +21,8 @@
 #define MXGAME_SYSTEM_TIME_TIMER_HPP_
 
 namespace mxgame {
+namespace system {
+namespace time {
 
 class Timer {
     public:
@@ -33,6 +35,8 @@ class Timer {
         virtual void Delay(unsigned long milliseconds) = 0;
 };
 
+} /* namespace time */
+} /* namespace system */
 } /* namespace mxgame */
 #endif /* MXGAME_SYSTEM_TIME_TIMER_HPP_ */
 

@@ -1,5 +1,5 @@
 /*
-  Copyright 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -27,6 +27,8 @@
 #include "mxgame/system/time/timer.hpp"
 
 namespace mxgame {
+namespace system {
+namespace time {
 
 class BoostTimer : public Timer {
     public:
@@ -44,6 +46,8 @@ class BoostTimer : public Timer {
         boost::chrono::steady_clock::time_point start_time_;
 };
 
+} /* namespace time */
+} /* namespace system */
 } /* namespace mxgame */
 #endif /* MXGAME_SYSTEM_TIME_BOOST_TIMER_HPP_ */
 

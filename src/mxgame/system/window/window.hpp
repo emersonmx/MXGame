@@ -1,5 +1,5 @@
 /*
-  Copyright 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -24,23 +24,25 @@
 #include <string>
 #include <list>
 
+#include "mxgame/system/window/window_listener.hpp"
+
 namespace mxgame {
+namespace system {
 namespace window {
 
 typedef enum Mode {
-    kWindow,
-    kResizableWindow,
-    kNoFrameWindow,
+    kResizable,
+    kFixed,
+    kNoFrame,
     kFullscreen
 } Mode;
-
-class WindowListener;
 
 class Window {
     public:
         Window()
-            : title_(""), x_(0), y_(0), width_(10), height_(10),
-              mode_(kWindow) {}
+            : title_("MXGame Window"),
+              x_(0), y_(0), width_(100), height_(100),
+              mode_(kResizable) {}
 
         virtual ~Window() {}
 
@@ -85,10 +87,20 @@ class Window {
 
         inline void set_mode(Mode mode) { mode_ = mode; }
 
-        void AddWindowListener(WindowListener* listener);
-        void RemoveWindowListener(WindowListener* listener);
+        void AddWindowListener(WindowListener* listener) {
+            if (listener != NULL) {
+                listeners_.push_back(listener);
+            }
+        }
+        void RemoveWindowListener(WindowListener* listener) {
+            if (listener != NULL) {
+                listeners_.remove(listener);
+            }
+        }
 
         virtual void Open() = 0;
+
+        virtual std::size_t handle() const = 0;
 
         virtual void ProcessEvents() = 0;
 
@@ -97,8 +109,37 @@ class Window {
         virtual void Close() = 0;
 
     protected:
-        void FireWindowClosed();
-        void FireWindowResized();
+        virtual void FireWindowShow() {
+            for (WindowListenerList::iterator it = listeners_.begin();
+                    it != listeners_.end(); ++it) {
+
+                (*it)->Show();
+            }
+
+        }
+        virtual void FireWindowHide() {
+            for (WindowListenerList::iterator it = listeners_.begin();
+                    it != listeners_.end(); ++it) {
+
+                (*it)->Hide();
+            }
+        }
+
+        void FireWindowClosed() {
+            for (WindowListenerList::iterator it = listeners_.begin();
+                    it != listeners_.end(); ++it) {
+
+                (*it)->Closed();
+            }
+        }
+
+        void FireWindowResized() {
+            for (WindowListenerList::iterator it = listeners_.begin();
+                    it != listeners_.end(); ++it) {
+
+                (*it)->Resized(width_, height_);
+            }
+        }
 
         std::string title_;
 
@@ -115,6 +156,7 @@ class Window {
 };
 
 } /* namespace window */
+} /* namespace system */
 } /* namespace mxgame */
 #endif /* MXGAME_SYSTEM_WINDOW_WINDOW_HPP_ */
 

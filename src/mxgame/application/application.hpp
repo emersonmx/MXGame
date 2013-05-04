@@ -1,5 +1,5 @@
 /*
-  Copyright 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -23,6 +23,7 @@
 #include <cstdlib>
 
 namespace mxgame {
+namespace application {
 
 class Application {
     public:
@@ -32,14 +33,12 @@ class Application {
 
         inline int error_code() const { return error_code_; }
 
+        void Run();
+
         inline void Exit(int error_code=EXIT_SUCCESS) {
             error_code_ = error_code;
             running_ = false;
         }
-
-        void Reset();
-
-        void Run();
 
         virtual void Log(const char* message);
 
@@ -57,6 +56,7 @@ class Application {
         bool running_;
 };
 
+} /* namespace application */
 } /* namespace mxgame */
 #endif /* MXGAME_APPLICATION_APPLICATION_HPP_ */
 

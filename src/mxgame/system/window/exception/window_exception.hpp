@@ -1,5 +1,5 @@
 /*
-  Copyright 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -17,28 +17,24 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "mxgame/system/window/window_listener.hpp"
+#ifndef MXGAME_SYSTEM_WINDOW_EXCEPTION_WINDOW_EXCEPTION_HPP_
+#define MXGAME_SYSTEM_WINDOW_EXCEPTION_WINDOW_EXCEPTION_HPP_
 
-#include "mxgame/system/window/window.hpp"
+#include "mxgame/exception/system_exception.hpp"
 
 namespace mxgame {
+namespace system {
 namespace window {
+namespace exception {
 
-void Window::AddWindowListener(WindowListener* listener) {
-    if (listener != NULL) {
-        listener->WindowResized(width_, height_);
-        listeners_.push_back(listener);
-    }
-}
+class WindowException : public mxgame::exception::SystemException {
+    public:
+        WindowException(const std::string& message)
+            : SystemException("WindowException\n\t" + message) {}
+};
 
-void Window::RemoveWindowListener(WindowListener* listener) {
-    WindowListenerList::iterator it;
-
-    for (it = listeners_.begin(); it != listeners_.end(); ++it) {
-        (*it)->WindowClosed();
-    }
-}
-
+} /* namespace exception */
 } /* namespace window */
+} /* namespace system */
 } /* namespace mxgame */
-
+#endif /* MXGAME_SYSTEM_WINDOW_EXCEPTION_WINDOW_EXCEPTION_HPP_ */

@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -17,40 +17,28 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/chrono/round.hpp>
-
-#include "mxgame/system/time/boost_timer.hpp"
+#ifndef MXGAME_SYSTEM_WINDOW_NULL_WINDOW_HPP_
+#define MXGAME_SYSTEM_WINDOW_NULL_WINDOW_HPP_
 
 namespace mxgame {
 namespace system {
-namespace time {
+namespace window {
 
-typedef boost::chrono::duration<unsigned, boost::milli> milliseconds;
+class NullWindow : public Window {
+    public:
+        virtual void Open() {}
 
-BoostTimer::BoostTimer()
-        : timer_(io_) {
+        virtual std::size_t handle() { return 0; }
 
-    Reset();
+        virtual void ProcessEvents() {}
+
+        virtual void SwapBuffers() {}
+
+        virtual void Close() {}
 }
 
-unsigned long BoostTimer::ticks() {
-    milliseconds ms =
-        boost::chrono::round<milliseconds>(
-                boost::chrono::steady_clock::now() - start_time_);
-
-    return ms.count();
-}
-
-void BoostTimer::Reset() {
-    start_time_ = boost::chrono::steady_clock::now();
-}
-
-void BoostTimer::Delay(unsigned long milliseconds) {
-    timer_.expires_from_now(boost::posix_time::milliseconds(milliseconds));
-    timer_.wait();
-}
-
-} /* namespace time */
+} /* namespace window */
 } /* namespace system */
 } /* namespace mxgame */
+#endif /* MXGAME_SYSTEM_WINDOW_NULL_WINDOW_HPP_ */
 

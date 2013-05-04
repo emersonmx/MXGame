@@ -1,5 +1,5 @@
 /*
-  Copyright 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -24,6 +24,8 @@
 #include "mxgame/system/time/system_timer.hpp"
 
 namespace mxgame {
+namespace system {
+namespace time {
 
 SystemTimer::SystemTimer() {
     Reset();
@@ -46,5 +48,7 @@ void SystemTimer::Delay(unsigned long milliseconds) {
     usleep(milliseconds * 1000);
 }
 
+} /* namespace time */
+} /* namespace system */
 } /* namespace mxgame */
 

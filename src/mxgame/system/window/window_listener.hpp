@@ -1,5 +1,5 @@
 /*
-  Copyright 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -21,17 +21,24 @@
 #define MXGAME_SYSTEM_WINDOW_WINDOW_LISTENER_HPP_
 
 namespace mxgame {
+namespace system {
 namespace window {
 
 class WindowListener {
     public:
         virtual ~WindowListener() {}
 
-        virtual void WindowClosed() = 0;
-        virtual void WindowResized(int width, int height) = 0;
+        virtual void Show() = 0;
+
+        virtual void Hide() = 0;
+
+        virtual void Closed() = 0;
+
+        virtual void Resized(int width, int height) = 0;
 };
 
 } /* namespace window */
+} /* namespace system */
 } /* namespace mxgame */
 #endif /* MXGAME_SYSTEM_WINDOW_WINDOW_LISTENER_HPP_ */
 

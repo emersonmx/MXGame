@@ -23,7 +23,7 @@
 
 using namespace mxgame;
 
-class ApplicationTest : public Application {
+class ApplicationTest : public application::Application {
     public:
         ApplicationTest(int max_count)
                 : max_count_(max_count) {}
@@ -66,15 +66,15 @@ class ApplicationTestError : public ApplicationTest {
             ApplicationTest::Update();
 
             if (count_ > max_count_ / 2) {
-                throw Exception("Exception occurred - "
-                                "Update(): count > max_count_ / 2");
+                throw exception::Exception("Exception occurred - "
+                                           "Update(): count > max_count_ / 2");
             }
         }
 };
 
 int main() {
     int error_code;
-    Application* application = new ApplicationTest(10);
+    application::Application* application = new ApplicationTest(10);
 
     application->Run();
     error_code = application->error_code();

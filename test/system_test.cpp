@@ -25,7 +25,7 @@
 
 using namespace mxgame;
 
-class BaseApplication : public Application {
+class BaseApplication : public application::Application {
     public:
         BaseApplication()
                 : count_(0), max_count_(10) {}
@@ -59,8 +59,8 @@ class BaseApplication : public Application {
             printf("%d/%d. Render()\n", count_, max_count_);
         }
 
-        Timer* timer_;
-        Clock* clock_;
+        system::time::Timer* timer_;
+        system::time::Clock* clock_;
 
         int count_;
         int max_count_;
@@ -69,9 +69,9 @@ class BaseApplication : public Application {
 class SystemTimerApplication : public BaseApplication {
     protected:
         virtual void Initialize() {
-            timer_ = new SystemTimer();
+            timer_ = new system::time::SystemTimer();
             timer_->Reset();
-            clock_ = new Clock(timer_);
+            clock_ = new system::time::Clock(timer_);
             BaseApplication::Initialize();
         }
 };
@@ -79,16 +79,16 @@ class SystemTimerApplication : public BaseApplication {
 class BoostTimerApplication : public BaseApplication {
     protected:
         virtual void Initialize() {
-            timer_ = new BoostTimer();
+            timer_ = new system::time::BoostTimer();
             timer_->Reset();
-            clock_ = new Clock(timer_);
+            clock_ = new system::time::Clock(timer_);
             BaseApplication::Initialize();
         }
 };
 
 int main() {
-    Application* boost_timer_application = new BoostTimerApplication();
-    Application* system_timer_application = new SystemTimerApplication();
+    application::Application* boost_timer_application = new BoostTimerApplication();
+    application::Application* system_timer_application = new SystemTimerApplication();
 
     printf("Running BoostTimerApplication\n");
     boost_timer_application->Run();

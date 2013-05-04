@@ -1,5 +1,5 @@
 /*
-  Copyright 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -24,16 +24,12 @@
 #include "mxgame/application/application.hpp"
 
 namespace mxgame {
+namespace application {
 
 Application::Application()
         : error_code_(EXIT_SUCCESS), running_(true) {}
 
 Application::~Application() {
-}
-
-void Application::Reset() {
-    error_code_ = EXIT_SUCCESS;
-    running_ = true;
 }
 
 void Application::Run() {
@@ -44,7 +40,7 @@ void Application::Run() {
             Update();
             Render();
         }
-    } catch (Exception& exception) {
+    } catch (mxgame::exception::Exception& exception) {
         Log(exception.what());
         Exit(EXIT_FAILURE);
     } catch (std::exception& exception) {
@@ -62,5 +58,6 @@ void Application::Log(const char* message) {
     printf("%s\n", message);
 }
 
+} /* namespace application */
 } /* namespace mxgame */
 

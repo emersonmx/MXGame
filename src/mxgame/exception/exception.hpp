@@ -1,5 +1,5 @@
 /*
-  Copyright 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -23,6 +23,7 @@
 #include <stdexcept>
 
 namespace mxgame {
+namespace exception {
 
 class Exception : public std::logic_error {
     public:
@@ -30,6 +31,7 @@ class Exception : public std::logic_error {
             : std::logic_error(message) {}
 };
 
+} /* namespace exception */
 } /* namespace mxgame */
 #endif /* MXGAME_EXCEPTION_EXCEPTION_HPP_ */
 

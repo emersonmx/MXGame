@@ -1,5 +1,5 @@
 /*
-  Copyright 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
 
   This file is part of pong.
 
@@ -22,6 +22,8 @@
 #include "mxgame/system/time/clock.hpp"
 
 namespace mxgame {
+namespace system {
+namespace time {
 
 Clock::Clock(Timer* timer, unsigned short framerate)
         : timer_(timer), framerate_(framerate) {
@@ -56,5 +58,7 @@ void Clock::Reset() {
     last_ticks_ = 0L;
 }
 
+} /* namespace time */
+} /* namespace system */
 } /* namespace mxgame */
 

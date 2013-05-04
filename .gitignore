@@ -13,6 +13,7 @@
 
 # Vim files
 *.swp
+.vimsession
 tags
 
 # Git files
@@ -38,6 +39,7 @@ src/mxgame/config.h.in~
 *.libs/
 test/application_test
 test/system_test
+test/system_window_test
 Makefile
 src/Makefile
 test/Makefile

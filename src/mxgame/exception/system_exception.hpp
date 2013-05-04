@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -17,33 +17,21 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
-#define MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_
+#ifndef MXGAME_EXCEPTION_SYSTEM_EXCEPTION_HPP_
+#define MXGAME_EXCEPTION_SYSTEM_EXCEPTION_HPP_
 
-#include <ctime>
-
-#include "mxgame/system/time/timer.hpp"
+#include "mxgame/exception/exception.hpp"
 
 namespace mxgame {
-namespace system {
-namespace time {
+namespace exception {
 
-class SystemTimer : public Timer {
+class SystemException : public Exception {
     public:
-        SystemTimer();
-
-        virtual unsigned long ticks();
-
-        virtual void Reset();
-
-        virtual void Delay(unsigned long milliseconds);
-
-    private:
-        struct timeval start_time_;
+        SystemException(const std::string& message)
+            : Exception("SystemException\n\t" + message) {}
 };
 
-} /* namespace time */
-} /* namespace system */
+} /* namespace exception */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_SYSTEM_TIMER_HPP_ */
+#endif /* MXGAME_EXCEPTION_SYSTEM_EXCEPTION_HPP_ */
 
