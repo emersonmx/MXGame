@@ -41,21 +41,14 @@ void Application::Run() {
             Render();
         }
     } catch (mxgame::exception::Exception& exception) {
-        Log(exception.what());
         Exit(EXIT_FAILURE);
     } catch (std::exception& exception) {
-        Log(exception.what());
         Exit(EXIT_FAILURE);
     } catch (...) {
-        Log("An error ocurred while running the application");
         Exit(EXIT_FAILURE);
     }
 
     Finalize();
-}
-
-void Application::Log(const char* message) {
-    printf("%s\n", message);
 }
 
 } /* namespace application */

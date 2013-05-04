@@ -40,8 +40,6 @@ class Application {
             running_ = false;
         }
 
-        virtual void Log(const char* message);
-
     protected:
         virtual void Initialize() = 0;
 
