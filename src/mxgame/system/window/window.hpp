@@ -109,22 +109,6 @@ class Window {
         virtual void Close() = 0;
 
     protected:
-        virtual void FireWindowShow() {
-            for (WindowListenerList::iterator it = listeners_.begin();
-                    it != listeners_.end(); ++it) {
-
-                (*it)->Show();
-            }
-
-        }
-        virtual void FireWindowHide() {
-            for (WindowListenerList::iterator it = listeners_.begin();
-                    it != listeners_.end(); ++it) {
-
-                (*it)->Hide();
-            }
-        }
-
         void FireWindowClosed() {
             for (WindowListenerList::iterator it = listeners_.begin();
                     it != listeners_.end(); ++it) {

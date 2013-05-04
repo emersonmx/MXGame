@@ -61,14 +61,6 @@ class WindowApplication : public application::Application,
             delete window_;
         }
 
-        virtual void Show() {
-            printf("Show\n");
-        }
-
-        virtual void Hide() {
-            printf("Hide\n");
-        }
-
         virtual void Closed() {
             printf("Exit\n");
             Exit(0);

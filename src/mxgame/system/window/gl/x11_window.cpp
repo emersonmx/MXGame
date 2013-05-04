@@ -67,9 +67,6 @@ void X11Window::ProcessEvents() {
     while(XPending(display_)) {
         XNextEvent(display_, &event_);
         switch(event_.type) {
-            case Expose:
-                FireWindowShow();
-                break;
             case ConfigureNotify:
                 if (event_.xconfigure.width != width_ ||
                         event_.xconfigure.height != height_) {

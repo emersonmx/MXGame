@@ -28,10 +28,6 @@ class WindowListener {
     public:
         virtual ~WindowListener() {}
 
-        virtual void Show() = 0;
-
-        virtual void Hide() = 0;
-
         virtual void Closed() = 0;
 
         virtual void Resized(int width, int height) = 0;
