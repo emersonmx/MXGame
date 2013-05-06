@@ -40,10 +40,6 @@ void Application::Run() {
             Update();
             Render();
         }
-    } catch (mxgame::exception::Exception& exception) {
-        Exit(EXIT_FAILURE);
-    } catch (std::exception& exception) {
-        Exit(EXIT_FAILURE);
     } catch (...) {
         Exit(EXIT_FAILURE);
     }
