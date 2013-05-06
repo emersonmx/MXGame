@@ -19,8 +19,6 @@
 
 #include <cstdio>
 
-#include "mxgame/exception/exception.hpp"
-
 #include "mxgame/application/application.hpp"
 
 namespace mxgame {

@@ -17,24 +17,21 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_WINDOW_EXCEPTION_WINDOW_EXCEPTION_HPP_
-#define MXGAME_SYSTEM_WINDOW_EXCEPTION_WINDOW_EXCEPTION_HPP_
+#ifndef MXGAME_CORE_EXCEPTION_HPP_
+#define MXGAME_CORE_EXCEPTION_HPP_
 
-#include "mxgame/exception/system_exception.hpp"
+#include <stdexcept>
 
 namespace mxgame {
-namespace system {
-namespace window {
-namespace exception {
+namespace core {
 
-class WindowException : public mxgame::exception::SystemException {
+class Exception : public std::logic_error {
     public:
-        WindowException(const std::string& message)
-            : SystemException("WindowException\n\t" + message) {}
+        explicit Exception(const std::string& message)
+            : std::logic_error(message) {}
 };
 
-} /* namespace exception */
-} /* namespace window */
-} /* namespace system */
+} /* namespace core */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_WINDOW_EXCEPTION_WINDOW_EXCEPTION_HPP_ */
+#endif /* MXGAME_CORE_EXCEPTION_HPP_ */
+

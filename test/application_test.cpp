@@ -19,7 +19,7 @@
 
 #include <cstdio>
 #include "mxgame/application/application.hpp"
-#include "mxgame/exception/exception.hpp"
+#include "mxgame/core/exception.hpp"
 
 using namespace mxgame;
 
@@ -66,8 +66,8 @@ class ApplicationTestError : public ApplicationTest {
             ApplicationTest::Update();
 
             if (count_ > max_count_ / 2) {
-                throw exception::Exception("Exception occurred - "
-                                           "Update(): count > max_count_ / 2");
+                throw core::Exception("Exception occurred - "
+                                      "Update(): count > max_count_ / 2");
             }
         }
 };

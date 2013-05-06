@@ -19,7 +19,7 @@
 
 #include <cstdlib>
 
-#include "mxgame/system/window/exception/window_exception.hpp"
+#include "mxgame/system/window/window_exception.hpp"
 
 #include "mxgame/system/window/gl/x11_window.hpp"
 
@@ -107,7 +107,7 @@ void X11Window::Close() {
 void X11Window::SetupDisplay() {
     display_ = XOpenDisplay(getenv("DISPLAY"));
     if (display_ == NULL) {
-        throw exception::WindowException("Can't create the display.");
+        throw WindowException("Can't create the display.");
     }
 }
 
@@ -117,12 +117,12 @@ void X11Window::CheckGLXVersion() {
                                          &minor_version);
     if (!query_version) {
         Close();
-        throw exception::WindowException("Failed to query version.");
+        throw WindowException("Failed to query version.");
     }
 
     if (major_version == 1 && minor_version < 3) {
         Close();
-        throw exception::WindowException(
+        throw WindowException(
             "Require GLX >= 1.3. GLX system version.");
     }
 }
@@ -133,7 +133,7 @@ void X11Window::ChooseFBConfig() {
                                   &attributes_.at(0), &n_configs);
     if (fbconfig_ == NULL) {
         Close();
-        throw exception::WindowException("Couldn't choose a FBConfig.");
+        throw WindowException("Couldn't choose a FBConfig.");
     }
 }
 
@@ -141,7 +141,7 @@ void X11Window::SetupVisualInfo() {
     visual_info_ = glXGetVisualFromFBConfig(display_, fbconfig_[0]);
     if (visual_info_ == NULL) {
         Close();
-        throw exception::WindowException("Couldn't choose a FBConfig.");
+        throw WindowException("Couldn't choose a FBConfig.");
     }
 }
 
@@ -174,7 +174,7 @@ void X11Window::SetupGLXContext() {
     context_ = glXCreateContext(display_, visual_info_, NULL, true);
     if (context_ == NULL) {
         Close();
-        throw exception::WindowException("Couldn't create a GLXContext.");
+        throw WindowException("Couldn't create a GLXContext.");
     }
 
     glXMakeCurrent(display_, window_, context_);

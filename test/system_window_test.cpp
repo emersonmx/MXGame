@@ -74,6 +74,16 @@ class WindowApplication : public application::Application,
         system::window::Window* window_;
 };
 
+#include "mxgame/application/application_exception.hpp"
+#include "mxgame/system/system_exception.hpp"
+#include "mxgame/system/window/window_exception.hpp"
+
+void lol() {
+    application::ApplicationException("asdawdwad");
+    system::SystemException("awdawd");
+    system::window::WindowException("asdfasdf");
+}
+
 int main() {
     application::Application* application = new WindowApplication();
 

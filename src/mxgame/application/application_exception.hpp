@@ -17,21 +17,21 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_EXCEPTION_EXCEPTION_HPP_
-#define MXGAME_EXCEPTION_EXCEPTION_HPP_
+#ifndef MXGAME_APPLICATION_APPLICATION_EXCEPTION_HPP_
+#define MXGAME_APPLICATION_APPLICATION_EXCEPTION_HPP_
 
-#include <stdexcept>
+#include "mxgame/core/exception.hpp"
 
 namespace mxgame {
-namespace exception {
+namespace application {
 
-class Exception : public std::logic_error {
+class ApplicationException : public mxgame::core::Exception {
     public:
-        explicit Exception(const std::string& message)
-            : std::logic_error(message) {}
+        ApplicationException(const std::string& message)
+            : mxgame::core::Exception("ApplicationException\n\t" + message) {}
 };
 
-} /* namespace exception */
+} /* namespace application */
 } /* namespace mxgame */
-#endif /* MXGAME_EXCEPTION_EXCEPTION_HPP_ */
+#endif /* MXGAME_APPLICATION_APPLICATION_EXCEPTION_HPP_ */
 

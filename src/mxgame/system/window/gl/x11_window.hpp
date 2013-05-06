@@ -17,8 +17,8 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_WINDOW_X11_X11_WINDOW_HPP_
-#define MXGAME_SYSTEM_WINDOW_X11_X11_WINDOW_HPP_
+#ifndef MXGAME_SYSTEM_WINDOW_GL_X11_WINDOW_HPP_
+#define MXGAME_SYSTEM_WINDOW_GL_X11_WINDOW_HPP_
 
 #include <GL/glx.h>
 #include <string>
@@ -86,5 +86,5 @@ class X11Window : public Window {
 } /* namespace window */
 } /* namespace system */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_WINDOW_X11_X11_WINDOW_HPP_ */
+#endif /* MXGAME_SYSTEM_WINDOW_GL_X11_WINDOW_HPP_ */
 
