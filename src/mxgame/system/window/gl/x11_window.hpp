@@ -44,9 +44,9 @@ class X11Window : public Window {
             attributes_ = attributes;
         }
 
-        virtual void Open();
-
         virtual std::size_t handle() const;
+
+        virtual void Open();
 
         virtual void ProcessEvents();
 

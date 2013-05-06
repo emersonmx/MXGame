@@ -47,6 +47,10 @@ X11Window::X11Window()
     attributes_.push_back(None);
 }
 
+std::size_t X11Window::handle() const {
+    return static_cast<std::size_t>(window_);
+}
+
 void X11Window::Open() {
     SetupDisplay();
     CheckGLXVersion();
@@ -57,10 +61,6 @@ void X11Window::Open() {
     SetupGLXContext();
 
     XSync(display_, false);
-}
-
-std::size_t X11Window::handle() const {
-    return static_cast<std::size_t>(window_);
 }
 
 void X11Window::ProcessEvents() {
