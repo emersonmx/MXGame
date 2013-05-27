@@ -19,7 +19,7 @@
 
 #include <boost/chrono/round.hpp>
 
-#include "mxgame/system/time/boost_timer.hpp"
+#include <mxgame/system/time/boost_timer.hpp>
 
 namespace mxgame {
 namespace system {

@@ -17,7 +17,7 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "mxgame/application/application.hpp"
+#include <mxgame/application/application.hpp>
 
 namespace mxgame {
 namespace application {

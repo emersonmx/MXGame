@@ -20,7 +20,7 @@
 #ifndef MXGAME_APPLICATION_APPLICATION_EXCEPTION_HPP_
 #define MXGAME_APPLICATION_APPLICATION_EXCEPTION_HPP_
 
-#include "mxgame/core/exception.hpp"
+#include <mxgame/core/exception.hpp>
 
 namespace mxgame {
 namespace application {
