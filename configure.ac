@@ -25,7 +25,6 @@ AC_CONFIG_FILES([
     src/mxgame/application/Makefile
     src/mxgame/system/Makefile
     src/mxgame/system/time/Makefile
-    src/mxgame/system/window/Makefile
     test/Makefile
 ])
 AC_OUTPUT
