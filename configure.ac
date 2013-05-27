@@ -5,8 +5,9 @@ AM_INIT_AUTOMAKE([-Wall])
 AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
-LT_INIT
 AC_PROG_CXX
+AM_PROG_AR
+LT_INIT
 
 # Checks for libraries.
 
