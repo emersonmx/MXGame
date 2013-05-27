@@ -40,80 +40,97 @@ typedef enum Mode {
 class Window {
     public:
         Window()
-            : title_("MXGame Window"),
+            : title_("Window"),
               x_(0), y_(0), width_(100), height_(100),
-              mode_(kResizable) {}
+              mode_(kResizable),
+              visible_(false) {}
 
         virtual ~Window() {}
 
         inline std::string title() const { return title_; }
 
-        inline void set_title(const std::string& title) { title_ = title; }
+        virtual void set_title(const std::string& title) { title_ = title; }
 
         inline int x() const { return x_; }
 
-        inline void set_x(int x) { x_ = x; }
+        virtual void set_x(int x) { x_ = x; }
 
         inline int y() const { return y_; }
 
-        inline void set_y(int y) { y_ = y; }
+        virtual void set_y(int y) { y_ = y; }
 
         inline void position(int& x, int& y) { x = x_; y = y_; }
 
-        inline void set_position(int x, int y) {
+        virtual void set_position(int x, int y) {
             set_x(x);
             set_y(y);
         }
 
-        inline int width() const { return width_; }
+        inline unsigned int width() const { return width_; }
 
-        inline void set_width(int width) { width_ = width; }
+        virtual void set_width(unsigned int width) { width_ = width; }
 
-        inline int height() const { return height_; }
+        inline unsigned int height() const { return height_; }
 
-        inline void set_height(int height) { height_ = height; }
+        virtual void set_height(unsigned int height) { height_ = height; }
 
-        void size(int& width, int& height) {
+        inline void size(unsigned int& width, unsigned int& height) {
             width = width_;
             height = height_;
         }
 
-        void set_size(int width, int height) {
-            set_width(width);
-            set_height(height);
+        virtual void set_size(unsigned int width, unsigned int height) {
+            width_ = width;
+            height_ = height;
         }
 
         inline Mode mode() const { return mode_; }
 
-        inline void set_mode(Mode mode) { mode_ = mode; }
+        virtual void set_mode(Mode mode) { mode_ = mode; }
+
+        inline bool visible() const { return visible_; }
+
+        virtual void set_visible(bool visible) { visible_ = visible; }
+
+        virtual void custom_attribute(const std::string& name, void* data) = 0;
 
         void AddWindowListener(WindowListener* listener) {
             if (listener != NULL) {
                 listeners_.push_back(listener);
             }
         }
+
         void RemoveWindowListener(WindowListener* listener) {
             if (listener != NULL) {
                 listeners_.remove(listener);
             }
         }
 
-        virtual void Open() = 0;
+        virtual void Create(const std::string& name,
+                            unsigned int width, unsigned int height,
+                            Mode mode,
+                            const NamedValuePairList& miscellaneous) {
+
+            set_title(name);
+            set_size(width, height);
+            set_mode(mode);
+            custom_attributes_ = custom_attributes;
+        }
 
         virtual std::size_t handle() const = 0;
 
         virtual void ProcessEvents() = 0;
 
-        virtual void SwapBuffers() = 0;
+        virtual void SwapBuffers(bool wait_vsync=true) = 0;
 
-        virtual void Close() = 0;
+        virtual void Destroy() = 0;
 
     protected:
-        void FireWindowClosed() {
+        void FireWindowMoved() {
             for (WindowListenerList::iterator it = listeners_.begin();
                     it != listeners_.end(); ++it) {
 
-                (*it)->Closed();
+                (*it)->Moved(this);
             }
         }
 
@@ -121,22 +138,40 @@ class Window {
             for (WindowListenerList::iterator it = listeners_.begin();
                     it != listeners_.end(); ++it) {
 
-                (*it)->Resized(width_, height_);
+                (*it)->Resized(this);
             }
         }
+
+        void FireWindowClosed() {
+            for (WindowListenerList::iterator it = listeners_.begin();
+                    it != listeners_.end(); ++it) {
+
+                (*it)->Closed(this);
+            }
+        }
+
+        void FireWindowFocusChange() {
+            for (WindowListenerList::iterator it = listeners_.begin();
+                    it != listeners_.end(); ++it) {
+
+                (*it)->FocusChange(this);
+            }
+        }
+
+    private:
+        typedef std::map<std::string, std::string> NamedValuePairList;
+        typedef std::list<WindowListener*> WindowListenerList;
+
+        WindowListenerList listeners_;
 
         std::string title_;
 
         int x_;
         int y_;
-        int width_;
-        int height_;
+        unsigned int width_;
+        unsigned int height_;
         Mode mode_;
-
-    private:
-        typedef std::list<WindowListener*> WindowListenerList;
-
-        WindowListenerList listeners_;
+        bool visible_;
 };
 
 } /* namespace window */

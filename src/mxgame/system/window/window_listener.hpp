@@ -24,13 +24,20 @@ namespace mxgame {
 namespace system {
 namespace window {
 
+class Window;
+
 class WindowListener {
     public:
         virtual ~WindowListener() {}
 
-        virtual void Closed() = 0;
+        virtual void Moved(Window* window) = 0;
 
-        virtual void Resized(int width, int height) = 0;
+        virtual void Resized(Window* window) = 0;
+
+        virtual void Closed(Window* window) = 0;
+
+        virtual void FocusChange(Window* window) = 0;
+
 };
 
 } /* namespace window */
