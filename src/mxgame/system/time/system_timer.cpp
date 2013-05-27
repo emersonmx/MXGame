@@ -17,44 +17,38 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_TIME_CLOCK_HPP_
-#define MXGAME_SYSTEM_TIME_CLOCK_HPP_
+#include <cstdlib>
+#include <unistd.h>
+#include <sys/time.h>
+
+#include "mxgame/system/time/system_timer.hpp"
 
 namespace mxgame {
 namespace system {
 namespace time {
 
-class Timer;
+SystemTimer::SystemTimer() {
+    Reset();
+}
 
-class Clock {
-    public:
-        static const unsigned short DEFAULT_FRAMERATE = 30;
+unsigned long SystemTimer::ticks() {
+    struct timeval now;
 
-        Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE);
+    gettimeofday(&now, NULL);
 
-        inline unsigned long time() const { return time_; }
+    return (now.tv_sec - start_time_.tv_sec) * 1000 +
+           (now.tv_usec - start_time_.tv_usec) / 1000;
+}
 
-        inline unsigned short framerate() const { return framerate_; }
+void SystemTimer::Reset() {
+    gettimeofday(&start_time_, NULL);
+}
 
-        inline void set_framerate(unsigned short framerate) {
-            framerate_ = framerate;
-        }
-
-        unsigned long tick();
-
-        void Reset();
-
-    private:
-        Timer* timer_;
-
-        unsigned long time_;
-        unsigned long last_ticks_;
-
-        unsigned short framerate_;
-};
+void SystemTimer::Delay(unsigned long milliseconds) {
+    usleep(milliseconds * 1000);
+}
 
 } /* namespace time */
 } /* namespace system */
 } /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_CLOCK_HPP_ */
 
