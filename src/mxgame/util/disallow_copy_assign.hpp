@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -17,32 +17,14 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_SYSTEM_TIME_TIMER_HPP_
-#define MXGAME_SYSTEM_TIME_TIMER_HPP_
+#ifndef MXGAME_UTIL_DISALLOW_COPY_ASSIGN_HPP_
+#define MXGAME_UTIL_DISALLOW_COPY_ASSIGN_HPP_
 
-#include <mxgame/util/disallow_copy_assign.hpp>
+// A macro to disallow the copy constructor and operator= functions
+// This should be used in the private: declarations for a class
+#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+    TypeName(const TypeName&);               \
+    void operator=(const TypeName&)
 
-namespace mxgame {
-namespace system {
-namespace time {
-
-class Timer {
-    public:
-        Timer() {}
-        virtual ~Timer() {}
-
-        virtual unsigned long ticks() = 0;
-
-        virtual void Reset() = 0;
-
-        virtual void Delay(unsigned long milliseconds) = 0;
-
-    private:
-        DISALLOW_COPY_AND_ASSIGN(Timer);
-};
-
-} /* namespace time */
-} /* namespace system */
-} /* namespace mxgame */
-#endif /* MXGAME_SYSTEM_TIME_TIMER_HPP_ */
+#endif /* MXGAME_UTIL_DISALLOW_COPY_ASSIGN_HPP_ */
 

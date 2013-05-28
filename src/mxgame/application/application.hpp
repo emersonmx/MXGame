@@ -22,6 +22,8 @@
 
 #include <cstdlib>
 
+#include <mxgame/util/disallow_copy_assign.hpp>
+
 namespace mxgame {
 namespace application {
 
@@ -52,6 +54,8 @@ class Application {
     private:
         int error_code_;
         bool running_;
+
+        DISALLOW_COPY_AND_ASSIGN(Application);
 };
 
 } /* namespace application */

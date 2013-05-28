@@ -24,6 +24,7 @@
 #include <boost/asio/deadline_timer.hpp>
 #include <boost/asio/steady_timer.hpp>
 
+#include <mxgame/util/disallow_copy_assign.hpp>
 #include <mxgame/system/time/timer.hpp>
 
 namespace mxgame {
@@ -44,6 +45,8 @@ class BoostTimer : public Timer {
         boost::asio::io_service io_;
         boost::asio::deadline_timer timer_;
         boost::chrono::steady_clock::time_point start_time_;
+
+        DISALLOW_COPY_AND_ASSIGN(BoostTimer);
 };
 
 } /* namespace time */
