@@ -36,7 +36,7 @@ void Application::Run() {
             Update();
             Render();
         }
-    } catch (...) {
+    } catch(...) {
         Exit(EXIT_FAILURE);
     }
 

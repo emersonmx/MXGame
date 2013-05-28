@@ -17,9 +17,9 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <boost/chrono/round.hpp>
-
 #include <mxgame/system/time/boost_timer.hpp>
+
+#include <boost/chrono/round.hpp>
 
 namespace mxgame {
 namespace system {

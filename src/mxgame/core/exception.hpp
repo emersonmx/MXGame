@@ -21,6 +21,7 @@
 #define MXGAME_CORE_EXCEPTION_HPP_
 
 #include <stdexcept>
+#include <string>
 
 namespace mxgame {
 namespace core {

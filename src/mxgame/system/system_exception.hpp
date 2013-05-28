@@ -27,7 +27,7 @@ namespace system {
 
 class SystemException : public mxgame::core::Exception {
     public:
-        SystemException(const std::string& message)
+        explicit SystemException(const std::string& message)
             : mxgame::core::Exception("SystemException\n\t" + message) {}
 };
 

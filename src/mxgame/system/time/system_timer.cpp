@@ -17,11 +17,11 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <mxgame/system/time/system_timer.hpp>
+
 #include <cstdlib>
 #include <unistd.h>
 #include <sys/time.h>
-
-#include <mxgame/system/time/system_timer.hpp>
 
 namespace mxgame {
 namespace system {
