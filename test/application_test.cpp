@@ -76,16 +76,14 @@ int main() {
     int error_code;
     application::Application* application = new ApplicationTest(10);
 
-    application->Run();
-    error_code = application->error_code();
+    error_code = application->Run();
     printf("Error: %d\n", error_code);
 
     delete application;
 
     application = new ApplicationTestError(10);
 
-    application->Run();
-    error_code = application->error_code();
+    error_code = application->Run();
     printf("Error: %d\n", error_code);
 
     delete application;

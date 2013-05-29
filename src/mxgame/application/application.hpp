@@ -35,7 +35,7 @@ class Application {
 
         inline int error_code() const { return error_code_; }
 
-        void Run();
+        int Run();
 
         inline void Exit(int error_code=EXIT_SUCCESS) {
             error_code_ = error_code;

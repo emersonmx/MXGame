@@ -28,7 +28,7 @@ Application::Application()
 Application::~Application() {
 }
 
-void Application::Run() {
+int Application::Run() {
     try {
         Initialize();
 
@@ -41,6 +41,8 @@ void Application::Run() {
     }
 
     Finalize();
+
+    return error_code_;
 }
 
 } /* namespace application */
