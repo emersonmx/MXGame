@@ -30,18 +30,16 @@ m4/
 build-aux/
 config.log
 config.status
+config.guess
 libtool
-src/mxgame/config.h
-src/mxgame/stamp-h1
-src/mxgame/config.h.in
-src/mxgame/config.h.in~
+stamp-h1
+config.h*
 *.deps/
 *.libs/
+Makefile
+Makefile.in*
+
+# Test files
 test/application_test
 test/system_test
 test/system_window_test
-Makefile
-src/Makefile
-test/Makefile
-Makefile.in*
-config.guess
