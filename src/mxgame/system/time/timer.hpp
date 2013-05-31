@@ -20,8 +20,6 @@
 #ifndef MXGAME_SYSTEM_TIME_TIMER_HPP_
 #define MXGAME_SYSTEM_TIME_TIMER_HPP_
 
-#include <mxgame/util/disallow_copy_assign.hpp>
-
 namespace mxgame {
 namespace system {
 namespace time {
@@ -36,9 +34,6 @@ class Timer {
         virtual void Reset() = 0;
 
         virtual void Delay(unsigned long milliseconds) = 0;
-
-    private:
-        DISALLOW_COPY_AND_ASSIGN(Timer);
 };
 
 } /* namespace time */

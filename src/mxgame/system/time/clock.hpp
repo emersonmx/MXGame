@@ -20,7 +20,6 @@
 #ifndef MXGAME_SYSTEM_TIME_CLOCK_HPP_
 #define MXGAME_SYSTEM_TIME_CLOCK_HPP_
 
-#include <mxgame/util/disallow_copy_assign.hpp>
 #include <mxgame/system/time/timer.hpp>
 
 namespace mxgame {
@@ -80,8 +79,6 @@ class Clock {
         unsigned long last_ticks_;
 
         unsigned short framerate_;
-
-        DISALLOW_COPY_AND_ASSIGN(Clock);
 };
 
 } /* namespace time */

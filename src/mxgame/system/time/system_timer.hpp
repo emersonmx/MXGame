@@ -22,7 +22,6 @@
 
 #include <ctime>
 
-#include <mxgame/util/disallow_copy_assign.hpp>
 #include <mxgame/system/time/timer.hpp>
 
 namespace mxgame {
@@ -41,8 +40,6 @@ class SystemTimer : public Timer {
 
     private:
         struct timeval start_time_;
-
-        DISALLOW_COPY_AND_ASSIGN(SystemTimer);
 };
 
 } /* namespace time */
