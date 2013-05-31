@@ -29,7 +29,7 @@ namespace core {
 class Exception : public std::logic_error {
     public:
         explicit Exception(const std::string& message)
-            : std::logic_error(message) {}
+                : std::logic_error(message) {}
 };
 
 } /* namespace core */

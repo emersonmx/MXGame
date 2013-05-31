@@ -34,7 +34,7 @@ class Clock {
         static const unsigned short DEFAULT_FRAMERATE = 30;
 
         Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE)
-            : timer_(timer), framerate_(framerate) {
+                : timer_(timer), framerate_(framerate) {
 
             Reset();
         }

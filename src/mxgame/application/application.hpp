@@ -30,7 +30,7 @@ namespace application {
 class Application {
     public:
         Application()
-            : error_code_(EXIT_SUCCESS), running_(true) {}
+                : error_code_(EXIT_SUCCESS), running_(true) {}
 
         virtual ~Application() {}
 

@@ -28,7 +28,8 @@ namespace application {
 class ApplicationException : public mxgame::core::Exception {
     public:
         explicit ApplicationException(const std::string& message)
-            : mxgame::core::Exception("ApplicationException\n\t" + message) {}
+                : mxgame::core::Exception("ApplicationException\n\t" +
+                                          message) {}
 };
 
 } /* namespace application */
