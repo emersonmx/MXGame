@@ -6,7 +6,6 @@ SUBDIRS=
 for dir in $SUBDIRS
 do
     cd $dir
-    echo "===== $(pwd)/autogen.sh ====="
     ./autogen.sh
     cd ..
 done
