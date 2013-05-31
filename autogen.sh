@@ -6,7 +6,8 @@ SUBDIRS=
 for dir in $SUBDIRS
 do
     cd $dir
-    ./autogen.sh
+    mkdir -p m4
+    rm -rf autom4te.cache
     cd ..
 done
 
