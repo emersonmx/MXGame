@@ -26,8 +26,6 @@ namespace mxgame {
 namespace system {
 namespace time {
 
-class Timer;
-
 class Clock {
     public:
         static const unsigned short DEFAULT_FRAMERATE = 30;
