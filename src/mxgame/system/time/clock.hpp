@@ -21,6 +21,7 @@
 #define MXGAME_SYSTEM_TIME_CLOCK_HPP_
 
 #include <mxgame/util/disallow_copy_assign.hpp>
+#include <mxgame/system/time/timer.hpp>
 
 namespace mxgame {
 namespace system {
@@ -32,7 +33,11 @@ class Clock {
     public:
         static const unsigned short DEFAULT_FRAMERATE = 30;
 
-        Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE);
+        Clock(Timer* timer, unsigned short framerate=DEFAULT_FRAMERATE)
+            : timer_(timer), framerate_(framerate) {
+
+            Reset();
+        }
 
         inline unsigned long time() const { return time_; }
 
@@ -42,9 +47,31 @@ class Clock {
             framerate_ = framerate;
         }
 
-        unsigned long tick();
+        unsigned long tick() {
+            if (framerate_ == 0) {
+                framerate_ = 1;
+            }
 
-        void Reset();
+            time_ = 1000.f / framerate_;
+
+            unsigned long delta = timer_->ticks() - last_ticks_;
+
+            if (delta < time_) {
+                timer_->Delay(time_ - delta);
+            } else {
+                time_ = delta;
+            }
+
+            last_ticks_ = timer_->ticks();
+
+            return time_;
+        }
+
+        void Reset() {
+            timer_->Reset();
+            time_ = 0L;
+            last_ticks_ = 0L;
+        }
 
     private:
         Timer* timer_;

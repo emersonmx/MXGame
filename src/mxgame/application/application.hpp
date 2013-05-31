@@ -29,13 +29,29 @@ namespace application {
 
 class Application {
     public:
-        Application();
+        Application()
+            : error_code_(EXIT_SUCCESS), running_(true) {}
 
-        virtual ~Application();
+        virtual ~Application() {}
 
         inline int error_code() const { return error_code_; }
 
-        int Run();
+        int Run() {
+            try {
+                Initialize();
+
+                while (running_) {
+                    Update();
+                    Render();
+                }
+            } catch(...) {
+                Exit(EXIT_FAILURE);
+            }
+
+            Finalize();
+
+            return error_code_;
+        }
 
         inline void Exit(int error_code=EXIT_SUCCESS) {
             error_code_ = error_code;

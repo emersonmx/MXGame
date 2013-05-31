@@ -6,7 +6,6 @@ lib_LTLIBRARIES = \
 	libmxgame_system_time.la
 
 libmxgame_system_time_la_SOURCES = \
-	clock.cpp \
 	boost_timer.cpp \
 	system_timer.cpp
 

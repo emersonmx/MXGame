@@ -1,2 +1,2 @@
-SUBDIRS = application system
+SUBDIRS = system
 
