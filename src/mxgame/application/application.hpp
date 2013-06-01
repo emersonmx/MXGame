@@ -35,15 +35,11 @@ class Application {
         inline int error_code() const { return error_code_; }
 
         int Run() {
-            try {
-                Initialize();
+            Initialize();
 
-                while (running_) {
-                    Update();
-                    Render();
-                }
-            } catch(...) {
-                Exit(EXIT_FAILURE);
+            while (running_) {
+                Update();
+                Render();
             }
 
             Finalize();
