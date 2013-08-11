@@ -18,8 +18,8 @@
 */
 
 #include <cstdio>
-#include "mxgame/application/application.hpp"
-#include "mxgame/core/exception.hpp"
+#include <mxgame/application/application.hpp>
+#include <mxgame/core/exception.hpp>
 
 using namespace mxgame;
 

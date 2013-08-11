@@ -42,4 +42,4 @@ Makefile.in*
 # Test files
 test/application_test
 test/system_test
-test/system_window_test
+test/util_test
