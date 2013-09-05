@@ -26,9 +26,6 @@ namespace time {
 
 class Timer {
     public:
-        Timer() {}
-        virtual ~Timer() {}
-
         virtual unsigned long ticks() = 0;
 
         virtual void Reset() = 0;
