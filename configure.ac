@@ -1,8 +1,27 @@
 # Prelude
 AC_INIT([mxgame], [1.0], [emersonmx@gmail.com])
+AC_PREREQ(2.5)
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([-Wall])
 AC_CONFIG_MACRO_DIR([m4])
+AM_INIT_AUTOMAKE([-Wall])
+
+# Configure options
+AC_ARG_ENABLE([build_tests],
+    [AS_HELP_STRING([--enable-build-tests], [enable mxgame build tests])],
+    [build_tests=yes])
+AC_ARG_WITH([ogre],
+    [AS_HELP_STRING([--without-ogre], [Ogre support])],
+    [with_ogre=no],
+    [with_ogre=yes])
+AC_ARG_WITH([boost_asio],
+    [AS_HELP_STRING([--without-boost-asio], [Boost ASIO support])],
+    [with_boost_asio=no],
+    [with_boost_asio=yes])
+
+# Conditionals
+AM_CONDITIONAL([BUILD_TESTS], [test "$build_tests" = yes])
+AM_CONDITIONAL([WITH_OGRE], [test "$with_ogre" = yes])
+AM_CONDITIONAL([WITH_BOOST_ASIO], [test "$with_boost_asio" = yes])
 
 # Checks for programs.
 AC_PROG_CXX
@@ -10,8 +29,16 @@ AM_PROG_AR
 LT_INIT
 
 # Checks for libraries.
+if [ test "$with_ogre" = yes ]; then
+    PKG_CHECK_MODULES([OGRE], [OGRE >= 1.8.1], [with_ogre=yes])
+fi
 
 # Checks for header files.
+if [ test "$with_boost_asio" = yes ]; then
+    AC_LANG_PUSH([C++])
+    AC_CHECK_HEADER([boost/asio.hpp], [with_boost_asio=yes])
+    AC_LANG_POP([C++])
+fi
 
 # Checks for typedefs, structures and compiler characteristics.
 

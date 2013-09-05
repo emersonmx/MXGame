@@ -2,3 +2,7 @@ ACLOCAL_AMFLAGS = -I m4
 
 SUBDIRS = src
 
+if BUILD_TESTS
+SUBDIRS += test
+endif
+
