@@ -26,6 +26,7 @@ AM_CONDITIONAL([WITH_BOOST_ASIO], [test "$with_boost_asio" = yes])
 # Checks for programs.
 AC_PROG_CXX
 AM_PROG_AR
+AC_PROG_LIBTOOL
 LT_INIT
 
 # Checks for libraries.
@@ -50,8 +51,16 @@ AC_CONFIG_FILES([
     Makefile
     src/Makefile
     src/mxgame/Makefile
+    src/mxgame/application/Makefile
+    src/mxgame/core/Makefile
     src/mxgame/system/Makefile
     src/mxgame/system/time/Makefile
+    src/mxgame/util/Makefile
+    src/mxgame/boost/Makefile
+    src/mxgame/boost/system/Makefile
+    src/mxgame/boost/system/time/Makefile
+    src/mxgame/ogre/Makefile
+    src/mxgame/ogre/core/Makefile
     test/Makefile
 ])
 AC_OUTPUT

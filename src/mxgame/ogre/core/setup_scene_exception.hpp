@@ -17,14 +17,14 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_CORE_OGRE_SETUP_SCENE_EXCEPTION_HPP_
-#define MXGAME_CORE_OGRE_SETUP_SCENE_EXCEPTION_HPP_
+#ifndef MXGAME_OGRE_CORE_SETUP_SCENE_EXCEPTION_HPP_
+#define MXGAME_OGRE_CORE_SETUP_SCENE_EXCEPTION_HPP_
 
 #include <mxgame/core/exception.hpp>
 
 namespace mxgame {
-namespace core {
 namespace ogre {
+namespace core {
 
 class SetupSceneException : public mxgame::core::Exception {
     public:
@@ -33,8 +33,8 @@ class SetupSceneException : public mxgame::core::Exception {
                         "Error while setting the scene.\n\t" + message) {}
 };
 
-} /* namespace ogre */
 } /* namespace core */
+} /* namespace ogre */
 } /* namespace mxgame */
-#endif /* MXGAME_CORE_OGRE_SETUP_SCENE_EXCEPTION_HPP_ */
+#endif /* MXGAME_OGRE_CORE_SETUP_SCENE_EXCEPTION_HPP_ */
 

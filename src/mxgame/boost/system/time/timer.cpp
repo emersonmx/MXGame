@@ -17,40 +17,42 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <mxgame/system/time/boost_timer.hpp>
+#include <mxgame/boost/system/time/timer.hpp>
 
 #include <boost/chrono/round.hpp>
 
 namespace mxgame {
+namespace boost {
 namespace system {
 namespace time {
 
-typedef boost::chrono::duration<unsigned, boost::milli> milliseconds;
+typedef ::boost::chrono::duration<unsigned, ::boost::milli> milliseconds;
 
-BoostTimer::BoostTimer()
+Timer::Timer()
         : timer_(io_) {
 
     Reset();
 }
 
-unsigned long BoostTimer::ticks() {
+unsigned long Timer::ticks() {
     milliseconds ms =
-        boost::chrono::round<milliseconds>(
-                boost::chrono::steady_clock::now() - start_time_);
+        ::boost::chrono::round<milliseconds>(
+                ::boost::chrono::steady_clock::now() - start_time_);
 
     return ms.count();
 }
 
-void BoostTimer::Reset() {
-    start_time_ = boost::chrono::steady_clock::now();
+void Timer::Reset() {
+    start_time_ = ::boost::chrono::steady_clock::now();
 }
 
-void BoostTimer::Delay(unsigned long milliseconds) {
-    timer_.expires_from_now(boost::posix_time::milliseconds(milliseconds));
+void Timer::Delay(unsigned long milliseconds) {
+    timer_.expires_from_now(::boost::posix_time::milliseconds(milliseconds));
     timer_.wait();
 }
 
 } /* namespace time */
 } /* namespace system */
+} /* namespace boost */
 } /* namespace mxgame */
 

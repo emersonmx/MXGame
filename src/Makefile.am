@@ -12,15 +12,15 @@ nobase_include_HEADERS = \
 
 if WITH_OGRE
 nobase_include_HEADERS += \
-	mxgame/core/ogre/initialize_resources_exception.hpp \
-	mxgame/core/ogre/setup_render_system_exception.hpp \
-	mxgame/core/ogre/setup_render_window_exception.hpp \
-	mxgame/core/ogre/setup_resources_exception.hpp \
-	mxgame/core/ogre/setup_root_exception.hpp \
-	mxgame/core/ogre/setup_scene_exception.hpp
+	mxgame/ogre/core/initialize_resources_exception.hpp \
+	mxgame/ogre/core/setup_render_system_exception.hpp \
+	mxgame/ogre/core/setup_render_window_exception.hpp \
+	mxgame/ogre/core/setup_resources_exception.hpp \
+	mxgame/ogre/core/setup_root_exception.hpp \
+	mxgame/ogre/core/setup_scene_exception.hpp
 endif
 
 if WITH_BOOST_ASIO
 nobase_include_HEADERS += \
-	mxgame/system/time/boost_timer.hpp
+	mxgame/boost/system/time/timer.hpp
 endif

@@ -28,7 +28,7 @@ namespace mxgame {
 namespace system {
 namespace time {
 
-class SystemTimer : public Timer {
+class SystemTimer : public mxgame::system::time::Timer {
     public:
         SystemTimer();
 
