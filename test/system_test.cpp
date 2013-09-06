@@ -21,7 +21,7 @@
 #include "mxgame/application/application.hpp"
 #include "mxgame/system/time/clock.hpp"
 #include "mxgame/system/time/system_timer.hpp"
-#include "mxgame/system/time/boost_timer.hpp"
+#include "mxgame/boost/system/time/timer.hpp"
 
 using namespace mxgame;
 
@@ -79,7 +79,7 @@ class SystemTimerApplication : public BaseApplication {
 class BoostTimerApplication : public BaseApplication {
     protected:
         virtual void Initialize() {
-            timer_ = new system::time::BoostTimer();
+            timer_ = new mxgame::boost::system::time::Timer();
             timer_->Reset();
             clock_ = new system::time::Clock(timer_);
             BaseApplication::Initialize();
