@@ -13,6 +13,10 @@ AC_ARG_WITH([ogre],
     [AS_HELP_STRING([--without-ogre], [Ogre support])],
     [with_ogre=no],
     [with_ogre=yes])
+AC_ARG_WITH([bullet],
+    [AS_HELP_STRING([--without-bullet], [Bullet support])],
+    [with_bullet=no],
+    [with_bullet=yes])
 AC_ARG_WITH([boost_asio],
     [AS_HELP_STRING([--without-boost-asio], [Boost ASIO support])],
     [with_boost_asio=no],
@@ -21,6 +25,7 @@ AC_ARG_WITH([boost_asio],
 # Conditionals
 AM_CONDITIONAL([BUILD_TESTS], [test "$build_tests" = yes])
 AM_CONDITIONAL([WITH_OGRE], [test "$with_ogre" = yes])
+AM_CONDITIONAL([WITH_BULLET], [test "$with_bullet" = yes])
 AM_CONDITIONAL([WITH_BOOST_ASIO], [test "$with_boost_asio" = yes])
 
 # Checks for programs.
@@ -32,6 +37,9 @@ LT_INIT
 # Checks for libraries.
 if [ test "$with_ogre" = yes ]; then
     PKG_CHECK_MODULES([OGRE], [OGRE >= 1.8.1], [with_ogre=yes])
+fi
+if [ test "$with_bullet" = yes ]; then
+    PKG_CHECK_MODULES([BULLET], [bullet >= 2.80], [with_bullet=yes])
 fi
 
 # Checks for header files.
@@ -60,7 +68,9 @@ AC_CONFIG_FILES([
     src/mxgame/boost/system/Makefile
     src/mxgame/boost/system/time/Makefile
     src/mxgame/ogre/Makefile
+    src/mxgame/ogre/bullet/Makefile
     src/mxgame/ogre/core/Makefile
+    src/mxgame/ogre/util/Makefile
     test/Makefile
 ])
 AC_OUTPUT
