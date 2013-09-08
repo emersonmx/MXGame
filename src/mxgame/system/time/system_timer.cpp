@@ -20,8 +20,8 @@
 #include <mxgame/system/time/system_timer.hpp>
 
 #include <cstdlib>
-#include <unistd.h>
 #include <sys/time.h>
+#include <unistd.h>
 
 namespace mxgame {
 namespace system {

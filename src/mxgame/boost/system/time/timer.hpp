@@ -20,8 +20,8 @@
 #ifndef MXGAME_BOOST_SYSTEM_TIME_TIMER_HPP_
 #define MXGAME_BOOST_SYSTEM_TIME_TIMER_HPP_
 
-#include <boost/asio/io_service.hpp>
 #include <boost/asio/deadline_timer.hpp>
+#include <boost/asio/io_service.hpp>
 #include <boost/asio/steady_timer.hpp>
 
 #include <mxgame/system/time/timer.hpp>

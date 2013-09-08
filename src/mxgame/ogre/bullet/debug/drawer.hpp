@@ -25,12 +25,12 @@
 
 #include <vector>
 
-#include <OgreFrameListener.h>
-#include <OgreVector3.h>
-#include <OgreColourValue.h>
-
 #include <LinearMath/btIDebugDraw.h>
 #include <LinearMath/btVector3.h>
+
+#include <OgreColourValue.h>
+#include <OgreFrameListener.h>
+#include <OgreVector3.h>
 
 namespace Ogre {
 

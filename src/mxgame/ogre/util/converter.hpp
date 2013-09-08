@@ -20,11 +20,11 @@
 #ifndef MXGAME_OGRE_UTIL_CONVERTER_HPP_
 #define MXGAME_OGRE_UTIL_CONVERTER_HPP_
 
-#include <OgreVector3.h>
-#include <OgreQuaternion.h>
-
-#include <LinearMath/btVector3.h>
 #include <LinearMath/btQuaternion.h>
+#include <LinearMath/btVector3.h>
+
+#include <OgreQuaternion.h>
+#include <OgreVector3.h>
 
 namespace mxgame {
 namespace ogre {

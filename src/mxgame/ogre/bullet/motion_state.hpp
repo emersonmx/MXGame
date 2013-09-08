@@ -23,9 +23,9 @@
 #ifndef MXGAME_OGRE_BULLET_MOTION_STATE_HPP_
 #define MXGAME_OGRE_BULLET_MOTION_STATE_HPP_
 
-#include <OgreSceneNode.h>
-
 #include <LinearMath/btMotionState.h>
+
+#include <OgreSceneNode.h>
 
 #include <mxgame/ogre/util/converter.hpp>
 
