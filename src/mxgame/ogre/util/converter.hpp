@@ -53,6 +53,18 @@ inline btQuaternion Convert(const Ogre::Quaternion& quaternion) {
 }
 
 } /* namespace quaternion */
+
+namespace color {
+
+inline Ogre::ColourValue Convert(const btVector3& color) {
+    return Ogre::ColourValue(color.x(), color.y(), color.z());
+}
+
+inline btVector3 Convert(const Ogre::ColourValue& color) {
+    return btVector3(color.r, color.g, color.b);
+}
+
+} /* namespace color */
 } /* namespace util */
 } /* namespace ogre */
 } /* namespace mxgame */

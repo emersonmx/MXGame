@@ -38,8 +38,8 @@ class MotionState : public btMotionState {
         MotionState()
                 : node_(NULL) {}
 
-        MotionState(const btTransform& initial_position, Ogre::SceneNode* node)
-                : node_(node), position_(initial_position) {}
+        MotionState(Ogre::SceneNode* node, btTransform position)
+                : node_(node) {}
 
         virtual ~MotionState() {}
 
@@ -47,8 +47,13 @@ class MotionState : public btMotionState {
 
         inline void set_node(Ogre::SceneNode* node) { node_ = node; }
 
-        virtual void getWorldTransform(btTransform& world_transform) {
-            world_transform = position_;
+        virtual void getWorldTransform(btTransform& world_transform) const {
+            btVector3 position = mxgame::ogre::util::vector::Convert(
+                node_->getPosition());
+            btQuaternion rotation = mxgame::ogre::util::quaternion::Convert(
+                node_->getOrientation());
+
+            world_transform = btTransform(rotation, position);
         }
 
         virtual void setWorldTransform(const btTransform& world_transform) {
@@ -68,7 +73,6 @@ class MotionState : public btMotionState {
 
     private:
         Ogre::SceneNode* node_;
-        btTransform position_;
 };
 
 } /* namespace bullet */
