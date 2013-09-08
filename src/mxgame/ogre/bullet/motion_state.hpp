@@ -38,7 +38,7 @@ class MotionState : public btMotionState {
         MotionState()
                 : node_(NULL) {}
 
-        MotionState(Ogre::SceneNode* node, btTransform position)
+        MotionState(Ogre::SceneNode* node)
                 : node_(node) {}
 
         virtual ~MotionState() {}
