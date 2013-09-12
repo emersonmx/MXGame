@@ -67,8 +67,8 @@ AC_CONFIG_FILES([
     src/mxgame/ogre/Makefile
     src/mxgame/ogre/bullet/Makefile
     src/mxgame/ogre/bullet/debug/Makefile
+    src/mxgame/ogre/bullet/util/Makefile
     src/mxgame/ogre/core/Makefile
-    src/mxgame/ogre/util/Makefile
     src/mxgame/system/Makefile
     src/mxgame/system/time/Makefile
     src/mxgame/util/Makefile

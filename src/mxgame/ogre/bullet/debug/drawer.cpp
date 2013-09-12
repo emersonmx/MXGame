@@ -25,7 +25,7 @@
 #include <OgreManualObject.h>
 #include <OgreRoot.h>
 
-#include <mxgame/ogre/util/converter.hpp>
+#include <mxgame/ogre/bullet/util/converter.hpp>
 
 namespace mxgame {
 namespace ogre {
@@ -92,12 +92,12 @@ int Drawer::getDebugMode () const {
 void Drawer::drawLine (const btVector3& from, const btVector3& to,
                        const btVector3& color) {
 
-    Ogre::ColourValue colour_value = mxgame::ogre::util::color::Convert(color);
+    Ogre::ColourValue colour_value = mxgame::ogre::bullet::util::color::Convert(color);
     colour_value.saturate();
 
-    lines_->position(mxgame::ogre::util::vector::Convert(from));
+    lines_->position(mxgame::ogre::bullet::util::vector::Convert(from));
     lines_->colour(colour_value);
-    lines_->position(mxgame::ogre::util::vector::Convert(to));
+    lines_->position(mxgame::ogre::bullet::util::vector::Convert(to));
     lines_->colour(colour_value);
 }
 
@@ -105,15 +105,16 @@ void Drawer::drawTriangle (const btVector3& v0, const btVector3& v1,
                            const btVector3& v2, const btVector3& color,
                            btScalar alpha) {
 
-    Ogre::ColourValue colour_value = mxgame::ogre::util::color::Convert(color);
+    Ogre::ColourValue colour_value =
+        mxgame::ogre::bullet::util::color::Convert(color);
     colour_value.a = alpha;
     colour_value.saturate();
 
-    triangles_->position(mxgame::ogre::util::vector::Convert(v0));
+    triangles_->position(mxgame::ogre::bullet::util::vector::Convert(v0));
     triangles_->colour(colour_value);
-    triangles_->position(mxgame::ogre::util::vector::Convert(v1));
+    triangles_->position(mxgame::ogre::bullet::util::vector::Convert(v1));
     triangles_->colour(colour_value);
-    triangles_->position(mxgame::ogre::util::vector::Convert(v2));
+    triangles_->position(mxgame::ogre::bullet::util::vector::Convert(v2));
     triangles_->colour(colour_value);
 }
 
@@ -123,12 +124,12 @@ void Drawer::drawContactPoint (const btVector3& point_on_b,
 
     contact_points_->resize(contact_points_->size() + 1);
     ContactPoint contact_point = contact_points_->back();
-    contact_point.from = mxgame::ogre::util::vector::Convert(point_on_b);
+    contact_point.from = mxgame::ogre::bullet::util::vector::Convert(point_on_b);
     contact_point.to = contact_point.from +
-        mxgame::ogre::util::vector::Convert(normal_on_b) * distance;
+        mxgame::ogre::bullet::util::vector::Convert(normal_on_b) * distance;
     contact_point.die_time =
         Ogre::Root::getSingleton().getTimer()->getMilliseconds() + life_time;
-    contact_point.color = mxgame::ogre::util::color::Convert(color);
+    contact_point.color = mxgame::ogre::bullet::util::color::Convert(color);
 }
 
 void Drawer::reportErrorWarning (const char* warning) {

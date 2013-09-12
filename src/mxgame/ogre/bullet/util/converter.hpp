@@ -17,8 +17,8 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_OGRE_UTIL_CONVERTER_HPP_
-#define MXGAME_OGRE_UTIL_CONVERTER_HPP_
+#ifndef MXGAME_OGRE_BULLET_UTIL_CONVERTER_HPP_
+#define MXGAME_OGRE_BULLET_UTIL_CONVERTER_HPP_
 
 #include <LinearMath/btQuaternion.h>
 #include <LinearMath/btVector3.h>
@@ -28,6 +28,7 @@
 
 namespace mxgame {
 namespace ogre {
+namespace bullet {
 namespace util {
 namespace vector {
 
@@ -66,7 +67,8 @@ inline btVector3 Convert(const Ogre::ColourValue& color) {
 
 } /* namespace color */
 } /* namespace util */
+} /* namespace bullet */
 } /* namespace ogre */
 } /* namespace mxgame */
-#endif /* MXGAME_OGRE_UTIL_CONVERTER_HPP_ */
+#endif /* MXGAME_OGRE_BULLET_UTIL_CONVERTER_HPP_ */
 

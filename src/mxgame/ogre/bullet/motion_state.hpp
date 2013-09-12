@@ -27,7 +27,7 @@
 
 #include <OgreSceneNode.h>
 
-#include <mxgame/ogre/util/converter.hpp>
+#include <mxgame/ogre/bullet/util/converter.hpp>
 
 namespace mxgame {
 namespace ogre {
@@ -48,9 +48,9 @@ class MotionState : public btMotionState {
         inline void set_node(Ogre::SceneNode* node) { node_ = node; }
 
         virtual void getWorldTransform(btTransform& world_transform) const {
-            btVector3 position = mxgame::ogre::util::vector::Convert(
+            btVector3 position = mxgame::ogre::bullet::util::vector::Convert(
                 node_->getPosition());
-            btQuaternion rotation = mxgame::ogre::util::quaternion::Convert(
+            btQuaternion rotation = mxgame::ogre::bullet::util::quaternion::Convert(
                 node_->getOrientation());
 
             world_transform = btTransform(rotation, position);
@@ -60,11 +60,11 @@ class MotionState : public btMotionState {
             if (node_ != NULL) {
                 btQuaternion rotation = world_transform.getRotation();
                 Ogre::Quaternion ogre_rotation =
-                    mxgame::ogre::util::quaternion::Convert(rotation);
+                    mxgame::ogre::bullet::util::quaternion::Convert(rotation);
 
                 btVector3 position = world_transform.getOrigin();
                 Ogre::Vector3 ogre_position =
-                    mxgame::ogre::util::vector::Convert(position);
+                    mxgame::ogre::bullet::util::vector::Convert(position);
 
                 node_->setOrientation(ogre_rotation);
                 node_->setPosition(ogre_position);
