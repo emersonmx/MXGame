@@ -9,24 +9,24 @@ AM_INIT_AUTOMAKE([-Wall])
 AC_ARG_ENABLE([build_tests],
     [AS_HELP_STRING([--enable-build-tests], [enable mxgame build tests])],
     [build_tests=yes])
-AC_ARG_WITH([ogre],
-    [AS_HELP_STRING([--without-ogre], [Ogre support])],
-    [with_ogre=no],
-    [with_ogre=yes])
-AC_ARG_WITH([bullet],
-    [AS_HELP_STRING([--without-bullet], [Bullet support])],
-    [with_bullet=no],
-    [with_bullet=yes])
 AC_ARG_WITH([boost_asio],
     [AS_HELP_STRING([--without-boost-asio], [Boost ASIO support])],
     [with_boost_asio=no],
     [with_boost_asio=yes])
+AC_ARG_WITH([bullet],
+    [AS_HELP_STRING([--without-bullet], [Bullet support])],
+    [with_bullet=no],
+    [with_bullet=yes])
+AC_ARG_WITH([ogre],
+    [AS_HELP_STRING([--without-ogre], [Ogre support])],
+    [with_ogre=no],
+    [with_ogre=yes])
 
 # Conditionals
 AM_CONDITIONAL([BUILD_TESTS], [test "$build_tests" = yes])
-AM_CONDITIONAL([WITH_OGRE], [test "$with_ogre" = yes])
-AM_CONDITIONAL([WITH_BULLET], [test "$with_bullet" = yes])
 AM_CONDITIONAL([WITH_BOOST_ASIO], [test "$with_boost_asio" = yes])
+AM_CONDITIONAL([WITH_BULLET], [test "$with_bullet" = yes])
+AM_CONDITIONAL([WITH_OGRE], [test "$with_ogre" = yes])
 
 # Checks for programs.
 AC_PROG_CXX
@@ -35,11 +35,11 @@ AC_PROG_LIBTOOL
 LT_INIT
 
 # Checks for libraries.
-if [ test "$with_ogre" = yes ]; then
-    PKG_CHECK_MODULES([OGRE], [OGRE >= 1.8.1], [with_ogre=yes])
-fi
 if [ test "$with_bullet" = yes ]; then
     PKG_CHECK_MODULES([BULLET], [bullet >= 2.80], [with_bullet=yes])
+fi
+if [ test "$with_ogre" = yes ]; then
+    PKG_CHECK_MODULES([OGRE], [OGRE >= 1.8.1], [with_ogre=yes])
 fi
 
 # Checks for header files.
@@ -60,17 +60,19 @@ AC_CONFIG_FILES([
     src/Makefile
     src/mxgame/Makefile
     src/mxgame/application/Makefile
-    src/mxgame/core/Makefile
-    src/mxgame/system/Makefile
-    src/mxgame/system/time/Makefile
-    src/mxgame/util/Makefile
     src/mxgame/boost/Makefile
     src/mxgame/boost/system/Makefile
     src/mxgame/boost/system/time/Makefile
+    src/mxgame/bullet/Makefile
+    src/mxgame/core/Makefile
     src/mxgame/ogre/Makefile
     src/mxgame/ogre/bullet/Makefile
+    src/mxgame/ogre/bullet/debug/Makefile
+    src/mxgame/ogre/bullet/util/Makefile
     src/mxgame/ogre/core/Makefile
-    src/mxgame/ogre/util/Makefile
+    src/mxgame/system/Makefile
+    src/mxgame/system/time/Makefile
+    src/mxgame/util/Makefile
     test/Makefile
 ])
 AC_OUTPUT

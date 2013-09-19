@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2012, 2013 Emerson Max de Medeiros Silva
+  Copyright (C) 2013 Emerson Max de Medeiros Silva
 
   This file is part of mxgame.
 
@@ -17,38 +17,20 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <mxgame/system/time/system_timer.hpp>
+#ifndef MXGAME_BULLET_SIMULATION_LISTENER_HPP_
+#define MXGAME_BULLET_SIMULATION_LISTENER_HPP_
 
-#include <cstdlib>
-#include <sys/time.h>
-#include <unistd.h>
+#include <LinearMath/btScalar.h>
 
 namespace mxgame {
-namespace system {
-namespace time {
+namespace bullet {
 
-SystemTimer::SystemTimer() {
-    Reset();
-}
+class SimulationListener {
+    public:
+        virtual void Tick(btScalar time_step) = 0;
+};
 
-unsigned long SystemTimer::ticks() {
-    struct timeval now;
-
-    gettimeofday(&now, NULL);
-
-    return (now.tv_sec - start_time_.tv_sec) * 1000 +
-           (now.tv_usec - start_time_.tv_usec) / 1000;
-}
-
-void SystemTimer::Reset() {
-    gettimeofday(&start_time_, NULL);
-}
-
-void SystemTimer::Delay(unsigned long milliseconds) {
-    usleep(milliseconds * 1000);
-}
-
-} /* namespace time */
-} /* namespace system */
+} /* namespace bullet */
 } /* namespace mxgame */
+#endif /* MXGAME_BULLET_SIMULATION_LISTENER_HPP_ */
 
