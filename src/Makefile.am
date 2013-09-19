@@ -10,6 +10,11 @@ nobase_include_HEADERS = \
 	mxgame/system/system_exception.hpp \
 	mxgame/util/util.hpp
 
+if WITH_BOOST_ASIO
+nobase_include_HEADERS += \
+	mxgame/boost/system/time/timer.hpp
+endif
+
 if WITH_OGRE
 nobase_include_HEADERS += \
 	mxgame/ogre/core/initialize_resources_exception.hpp \
@@ -18,9 +23,18 @@ nobase_include_HEADERS += \
 	mxgame/ogre/core/setup_resources_exception.hpp \
 	mxgame/ogre/core/setup_root_exception.hpp \
 	mxgame/ogre/core/setup_scene_exception.hpp
+
+if WITH_BULLET
+nobase_include_HEADERS += \
+	mxgame/ogre/bullet/debug/drawer.hpp \
+	mxgame/ogre/bullet/util/converter.hpp \
+	mxgame/ogre/bullet/motion_state.hpp
+endif
 endif
 
-if WITH_BOOST_ASIO
+if WITH_BULLET
 nobase_include_HEADERS += \
-	mxgame/boost/system/time/timer.hpp
+	mxgame/bullet/simulation.hpp \
+	mxgame/bullet/simulation_listener.hpp
 endif
+

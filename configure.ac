@@ -63,6 +63,7 @@ AC_CONFIG_FILES([
     src/mxgame/boost/Makefile
     src/mxgame/boost/system/Makefile
     src/mxgame/boost/system/time/Makefile
+    src/mxgame/bullet/Makefile
     src/mxgame/core/Makefile
     src/mxgame/ogre/Makefile
     src/mxgame/ogre/bullet/Makefile
