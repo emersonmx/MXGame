@@ -20,6 +20,8 @@
 #ifndef MXGAME_UTIL_UTIL_HPP_
 #define MXGAME_UTIL_UTIL_HPP_
 
+#include <sstream>
+
 #ifdef DEBUG
 #define MXGAME_UTIL_MAIN(NEW_APPLICATION)                                      \
 int main() {                                                                   \
@@ -41,5 +43,24 @@ int main() {                                                                   \
 }
 #endif /* DEBUG */
 
+namespace mxgame {
+namespace util {
+
+template<typename T>
+std::string ToString(const T& value) {
+    std::ostringstream stream;
+    stream << value;
+    return stream.str();
+}
+
+template<typename T>
+T Parse(const std::string& value) {
+    std::istringstream stream(value);
+    T result;
+    return stream >> result;
+}
+
+} /* namespace util */
+} /* namespace mxgame */
 #endif /* MXGAME_UTIL_UTIL_HPP_ */
 
