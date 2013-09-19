@@ -26,10 +26,10 @@ namespace mxgame {
 namespace ogre {
 namespace core {
 
-class InitializeResourcesException : public mxgame::core::Exception {
+class InitializeResourcesException : public mxgame::Exception {
     public:
         InitializeResourcesException(const std::string& message="")
-                : mxgame::core::Exception(
+                : mxgame::Exception(
                         "InitializeResourcesException: Could not load "
                         "resources.\n\t" + message) {}
 };

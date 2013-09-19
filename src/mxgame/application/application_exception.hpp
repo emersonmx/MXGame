@@ -25,11 +25,10 @@
 namespace mxgame {
 namespace application {
 
-class ApplicationException : public mxgame::core::Exception {
+class ApplicationException : public mxgame::Exception {
     public:
         explicit ApplicationException(const std::string& message)
-                : mxgame::core::Exception("ApplicationException\n\t" +
-                                          message) {}
+                : mxgame::Exception("ApplicationException\n\t" + message) {}
 };
 
 } /* namespace application */

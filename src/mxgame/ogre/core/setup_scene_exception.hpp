@@ -26,10 +26,10 @@ namespace mxgame {
 namespace ogre {
 namespace core {
 
-class SetupSceneException : public mxgame::core::Exception {
+class SetupSceneException : public mxgame::Exception {
     public:
         SetupSceneException(const std::string& message="")
-                : mxgame::core::Exception("SetupSceneException: "
+                : mxgame::Exception("SetupSceneException: "
                         "Error while setting the scene.\n\t" + message) {}
 };
 

@@ -66,8 +66,8 @@ class ApplicationTestError : public ApplicationTest {
             ApplicationTest::Update();
 
             if (count_ > max_count_ / 2) {
-                throw core::Exception("Exception occurred - "
-                                      "Update(): count > max_count_ / 2");
+                throw Exception("Exception occurred - "
+                                "Update(): count > max_count_ / 2");
             }
         }
 };

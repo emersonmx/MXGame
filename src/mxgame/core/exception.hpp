@@ -24,7 +24,6 @@
 #include <string>
 
 namespace mxgame {
-namespace core {
 
 class Exception : public std::logic_error {
     public:
@@ -32,7 +31,6 @@ class Exception : public std::logic_error {
                 : std::logic_error(message) {}
 };
 
-} /* namespace core */
 } /* namespace mxgame */
 #endif /* MXGAME_CORE_EXCEPTION_HPP_ */
 

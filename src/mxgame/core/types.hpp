@@ -17,25 +17,25 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_OGRE_CORE_SETUP_ROOT_EXCEPTION_HPP_
-#define MXGAME_OGRE_CORE_SETUP_ROOT_EXCEPTION_HPP_
+#ifndef MXGAME_CORE_TYPES_HPP_
+#define MXGAME_CORE_TYPES_HPP_
 
-#include <mxgame/core/exception.hpp>
+#include <map>
+#include <string>
+
+#include <mxgame/config.h>
 
 namespace mxgame {
-namespace ogre {
-namespace core {
 
-class SetupRootException : public mxgame::Exception {
-    public:
-        SetupRootException(const std::string& message="")
-                : mxgame::Exception("SetupRootException: "
-                        "Could not instantiate a Ogre::Root object.\n\t" +
-                        message) {}
-};
+#ifdef DOUBLE_PRECISION
+typedef double Real;
+#else
+typedef float Real;
+#endif
 
-} /* namespace core */
-} /* namespace ogre */
+typedef std::map<std::string, std::string> KeyValuePairList;
+typedef KeyValuePairList::value_type KeyValuePair;
+
 } /* namespace mxgame */
-#endif /* MXGAME_OGRE_CORE_SETUP_ROOT_EXCEPTION_HPP_ */
+#endif /* MXGAME_CORE_TYPES_HPP_ */
 

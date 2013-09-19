@@ -25,10 +25,10 @@
 namespace mxgame {
 namespace system {
 
-class SystemException : public mxgame::core::Exception {
+class SystemException : public mxgame::Exception {
     public:
         explicit SystemException(const std::string& message)
-                : mxgame::core::Exception("SystemException\n\t" + message) {}
+                : mxgame::Exception("SystemException\n\t" + message) {}
 };
 
 } /* namespace system */

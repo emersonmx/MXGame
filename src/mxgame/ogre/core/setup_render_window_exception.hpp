@@ -26,10 +26,10 @@ namespace mxgame {
 namespace ogre {
 namespace core {
 
-class SetupRenderWindowException : public mxgame::core::Exception {
+class SetupRenderWindowException : public mxgame::Exception {
     public:
         SetupRenderWindowException(const std::string& message="")
-                : mxgame::core::Exception(
+                : mxgame::Exception(
                         "SetupRenderWindowException: Could not create the "
                         "render window.\n\t" + message) {}
 };
