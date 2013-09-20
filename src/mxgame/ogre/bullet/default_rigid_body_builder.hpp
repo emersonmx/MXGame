@@ -22,7 +22,11 @@
 
 #include <mxgame/bullet/rigid_body_builder.hpp>
 
+#ifdef DEBUG
+#include <BulletCollision/CollisionShapes/btBoxShape.h>
+#else
 #include <BulletCollision/CollisionShapes/btBox2dShape.h>
+#endif
 #include <BulletCollision/CollisionShapes/btCollisionShape.h>
 #include <BulletDynamics/Dynamics/btRigidBody.h>
 #include <LinearMath/btMotionState.h>
@@ -66,9 +70,13 @@ class DefaultRigidBodyBuilder : public mxgame::bullet::RigidBodyBuilder {
         virtual void BuildColisionShape() {
             node_->_update(true, true);
             btVector3 size = mxgame::ogre::bullet::util::vector::Convert(
-                    node_->_getWorldAABB().getSize());
+                node_->_getWorldAABB().getHalfSize());
 
+#ifdef DEBUG
+            collision_shape_ = new btBoxShape(size);
+#else
             collision_shape_ = new btBox2dShape(size);
+#endif
         }
 
         virtual void BuildMotionState() {
