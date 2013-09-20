@@ -24,7 +24,9 @@ nobase_include_HEADERS += \
 	mxgame/ogre/core/setup_render_window_exception.hpp \
 	mxgame/ogre/core/setup_resources_exception.hpp \
 	mxgame/ogre/core/setup_root_exception.hpp \
-	mxgame/ogre/core/setup_scene_exception.hpp
+	mxgame/ogre/core/setup_scene_exception.hpp \
+	mxgame/ogre/default_scene_node_builder.hpp \
+	mxgame/ogre/scene_node_builder.hpp
 
 if WITH_BULLET
 nobase_include_HEADERS += \

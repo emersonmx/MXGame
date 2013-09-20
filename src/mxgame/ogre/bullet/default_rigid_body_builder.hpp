@@ -61,6 +61,8 @@ class DefaultRigidBodyBuilder : public mxgame::bullet::RigidBodyBuilder {
 
         inline void set_node(Ogre::SceneNode* node) { node_ = node; }
 
+        virtual btRigidBody* rigid_body() { return rigid_body_; }
+
         virtual void BuildColisionShape() {
             node_->_update(true, true);
             btVector3 size = mxgame::ogre::bullet::util::vector::Convert(
@@ -83,8 +85,6 @@ class DefaultRigidBodyBuilder : public mxgame::bullet::RigidBodyBuilder {
 
             rigid_body_ = new btRigidBody(info);
         }
-
-        virtual btRigidBody* rigid_body() { return rigid_body_; }
 
     protected:
         btScalar mass_;

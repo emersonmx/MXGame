@@ -17,31 +17,31 @@
   along with mxgame.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef MXGAME_BULLET_RIGID_BODY_HPP_
-#define MXGAME_BULLET_RIGID_BODY_HPP_
+#ifndef MXGAME_OGRE_SCENE_NODE_BUILDER_HPP_
+#define MXGAME_OGRE_SCENE_NODE_BUILDER_HPP_
 
 #include <cstddef>
 
+#include <OgreSceneNode.h>
+
 namespace mxgame {
-namespace bullet {
+namespace ogre {
 
-class RigidBodyBuilder {
+class SceneNodeBuilder {
     public:
-        virtual ~RigidBodyBuilder() {}
+        virtual ~SceneNodeBuilder() {}
 
-        virtual btRigidBody* rigid_body() { return NULL; }
+        virtual Ogre::SceneNode* scene_node() { return NULL; }
 
-        virtual void BuildColisionShape() {}
+        virtual void BuildEntity() {}
 
-        virtual void BuildMotionState() {}
-
-        virtual void BuildRigidBody() {}
+        virtual void BuildSceneNode() {}
 
     protected:
-        RigidBodyBuilder() {}
+        SceneNodeBuilder() {}
 };
 
-} /* namespace bullet */
+} /* namespace ogre */
 } /* namespace mxgame */
-#endif /* MXGAME_BULLET_RIGID_BODY_HPP_ */
+#endif /* MXGAME_OGRE_SCENE_NODE_BUILDER_HPP_ */
 
