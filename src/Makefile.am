@@ -28,6 +28,7 @@ nobase_include_HEADERS += \
 
 if WITH_BULLET
 nobase_include_HEADERS += \
+	mxgame/ogre/bullet/default_rigid_body_builder.hpp \
 	mxgame/ogre/bullet/debug/drawer.hpp \
 	mxgame/ogre/bullet/util/converter.hpp \
 	mxgame/ogre/bullet/motion_state.hpp
@@ -36,6 +37,7 @@ endif
 
 if WITH_BULLET
 nobase_include_HEADERS += \
+	mxgame/bullet/rigid_body_builder.hpp \
 	mxgame/bullet/simulation.hpp \
 	mxgame/bullet/simulation_listener.hpp
 endif
