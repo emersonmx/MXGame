@@ -23,7 +23,6 @@
 #include <cstdlib>
 
 namespace mxgame {
-namespace application {
 
 class Application {
     public:
@@ -66,7 +65,6 @@ class Application {
         bool running_;
 };
 
-} /* namespace application */
 } /* namespace mxgame */
 #endif /* MXGAME_APPLICATION_APPLICATION_HPP_ */
 

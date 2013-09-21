@@ -19,13 +19,14 @@
 
 #include <cstdio>
 #include "mxgame/application/application.hpp"
-#include "mxgame/system/time/clock.hpp"
-#include "mxgame/system/time/system_timer.hpp"
-#include "mxgame/boost/system/time/timer.hpp"
+#include "mxgame/system/clock.hpp"
+#include "mxgame/system/system_timer.hpp"
+#include "mxgame/system/boost_timer.hpp"
+#include "mxgame/system/timer.hpp"
 
 using namespace mxgame;
 
-class BaseApplication : public application::Application {
+class BaseApplication : public mxgame::Application {
     public:
         BaseApplication()
                 : count_(0), max_count_(10) {}
@@ -59,8 +60,8 @@ class BaseApplication : public application::Application {
             printf("%d/%d. Render()\n", count_, max_count_);
         }
 
-        system::time::Timer* timer_;
-        system::time::Clock* clock_;
+        mxgame::Timer* timer_;
+        mxgame::Clock* clock_;
 
         int count_;
         int max_count_;
@@ -69,9 +70,9 @@ class BaseApplication : public application::Application {
 class SystemTimerApplication : public BaseApplication {
     protected:
         virtual void Initialize() {
-            timer_ = new system::time::SystemTimer();
+            timer_ = new mxgame::SystemTimer();
             timer_->Reset();
-            clock_ = new system::time::Clock(timer_);
+            clock_ = new mxgame::Clock(timer_);
             BaseApplication::Initialize();
         }
 };
@@ -79,16 +80,16 @@ class SystemTimerApplication : public BaseApplication {
 class BoostTimerApplication : public BaseApplication {
     protected:
         virtual void Initialize() {
-            timer_ = new mxgame::boost::system::time::Timer();
+            timer_ = new mxgame::BoostTimer();
             timer_->Reset();
-            clock_ = new system::time::Clock(timer_);
+            clock_ = new mxgame::Clock(timer_);
             BaseApplication::Initialize();
         }
 };
 
 int main() {
-    application::Application* boost_timer_application = new BoostTimerApplication();
-    application::Application* system_timer_application = new SystemTimerApplication();
+    mxgame::Application* boost_timer_application = new BoostTimerApplication();
+    mxgame::Application* system_timer_application = new SystemTimerApplication();
 
     printf("Running BoostTimerApplication\n");
     boost_timer_application->Run();

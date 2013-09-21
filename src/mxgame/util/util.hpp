@@ -26,7 +26,7 @@
 #define MXGAME_UTIL_MAIN(NEW_APPLICATION)                                      \
 int main() {                                                                   \
     int error_code;                                                            \
-    mxgame::application::Application* application = NEW_APPLICATION;           \
+    mxgame::Application* application = NEW_APPLICATION;                        \
     error_code = application->Run();                                           \
     printf("Error code: %d\n", error_code);                                    \
     delete application;                                                        \
@@ -36,7 +36,7 @@ int main() {                                                                   \
 #define MXGAME_UTIL_MAIN(NEW_APPLICATION)                                      \
 int main() {                                                                   \
     int error_code;                                                            \
-    mxgame::application::Application* application = NEW_APPLICATION;           \
+    mxgame::Application* application = NEW_APPLICATION;                        \
     error_code = application->Run();                                           \
     delete application;                                                        \
     return error_code;                                                         \
@@ -44,7 +44,6 @@ int main() {                                                                   \
 #endif /* DEBUG */
 
 namespace mxgame {
-namespace util {
 
 template<typename T>
 std::string ToString(const T& value) {
@@ -60,7 +59,6 @@ T Parse(const std::string& value) {
     return stream >> result;
 }
 
-} /* namespace util */
 } /* namespace mxgame */
 #endif /* MXGAME_UTIL_UTIL_HPP_ */
 

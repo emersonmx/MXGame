@@ -60,18 +60,11 @@ AC_CONFIG_FILES([
     src/Makefile
     src/mxgame/Makefile
     src/mxgame/application/Makefile
-    src/mxgame/boost/Makefile
-    src/mxgame/boost/system/Makefile
-    src/mxgame/boost/system/time/Makefile
-    src/mxgame/bullet/Makefile
     src/mxgame/core/Makefile
-    src/mxgame/ogre/Makefile
-    src/mxgame/ogre/bullet/Makefile
-    src/mxgame/ogre/bullet/debug/Makefile
-    src/mxgame/ogre/bullet/util/Makefile
-    src/mxgame/ogre/core/Makefile
+    src/mxgame/exception/Makefile
+    src/mxgame/graphic/Makefile
+    src/mxgame/physics/Makefile
     src/mxgame/system/Makefile
-    src/mxgame/system/time/Makefile
     src/mxgame/util/Makefile
     test/Makefile
 ])

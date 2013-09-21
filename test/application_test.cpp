@@ -19,11 +19,11 @@
 
 #include <cstdio>
 #include <mxgame/application/application.hpp>
-#include <mxgame/core/exception.hpp>
+#include <mxgame/exception/exception.hpp>
 
 using namespace mxgame;
 
-class ApplicationTest : public application::Application {
+class ApplicationTest : public Application {
     public:
         ApplicationTest(int max_count)
                 : max_count_(max_count) {}
@@ -74,7 +74,7 @@ class ApplicationTestError : public ApplicationTest {
 
 int main() {
     int error_code;
-    application::Application* application = new ApplicationTest(10);
+    mxgame::Application* application = new ApplicationTest(10);
 
     error_code = application->Run();
     printf("Error: %d\n", error_code);

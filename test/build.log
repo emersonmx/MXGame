@@ -1,0 +1,6 @@
+g++ -DHAVE_CONFIG_H -I. -I../src/mxgame  -Wall -I../src  -Wall -g -O2 -MT application_test.o -MD -MP -MF .deps/application_test.Tpo -c -o application_test.o application_test.cpp
+mv -f .deps/application_test.Tpo .deps/application_test.Po
+/bin/sh ../libtool --tag=CXX   --mode=link g++ -Wall -g -O2 -L../src/mxgame/system/time -L../src/mxgame/boost/system/time  -o application_test application_test.o  
+../libtool: line 6000: cd: ../src/mxgame/system/time: No such file or directory
+libtool: link: cannot determine absolute directory name of `../src/mxgame/system/time'
+make: ** [application_test] Erro 1

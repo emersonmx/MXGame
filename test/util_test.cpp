@@ -22,7 +22,7 @@
 #include <mxgame/application/application.hpp>
 #include <mxgame/util/util.hpp>
 
-class TestApplication : public mxgame::application::Application {
+class TestApplication : public mxgame::Application {
     public:
         TestApplication()
                 : count_(0) {}

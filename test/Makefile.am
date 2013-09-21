@@ -11,16 +11,15 @@ AM_CXXFLAGS = \
 	-Wall
 
 AM_LDFLAGS = \
-	-L$(top_srcdir)/src/mxgame/system/time \
-	-L$(top_srcdir)/src/mxgame/boost/system/time
+	-L$(top_srcdir)/src/mxgame/system
 
 application_test_SOURCES = application_test.cpp
 
 system_test_SOURCES = system_test.cpp
 system_test_LDADD = \
 	-lboost_chrono \
-	-lmxgame_system_time \
-	-lmxgame_boost_system_time
+	-lmxgame_system_boost_timer \
+	-lmxgame_system
 
 util_test_SOURCES = util_test.cpp
 
