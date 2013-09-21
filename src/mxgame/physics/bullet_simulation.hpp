@@ -37,6 +37,8 @@ class BulletSimulation {
 
         static void Remove(BulletSimulationListener* listener);
 
+        static void Clear();
+
     private:
         typedef std::list<BulletSimulationListener*>
         BulletSimulationListenerList;

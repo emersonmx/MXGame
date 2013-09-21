@@ -39,6 +39,10 @@ void BulletSimulation::Remove(BulletSimulationListener* listener) {
     }
 }
 
+void BulletSimulation::Clear() {
+    listeners_.clear();
+}
+
 void BulletSimulation::FireTick(btDynamicsWorld* world, btScalar time_step) {
     BulletSimulationListenerList::iterator it;
     for (it = listeners_.begin(); it != listeners_.end(); ++it) {
