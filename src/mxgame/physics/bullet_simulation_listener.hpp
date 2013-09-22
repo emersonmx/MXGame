@@ -20,6 +20,7 @@
 #ifndef MXGAME_PHYSICS_BULLET_SIMULATION_LISTENER_HPP_
 #define MXGAME_PHYSICS_BULLET_SIMULATION_LISTENER_HPP_
 
+#include <BulletDynamics/Dynamics/btDynamicsWorld.h>
 #include <LinearMath/btScalar.h>
 
 namespace mxgame {
