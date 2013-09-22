@@ -26,7 +26,7 @@ namespace mxgame {
 
 class BulletSimulationListener {
     public:
-        virtual void Tick(btScalar time_step) = 0;
+        virtual void Tick(btDynamicsWorld* world, btScalar time_step) = 0;
 };
 
 } /* namespace mxgame */

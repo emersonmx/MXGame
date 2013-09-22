@@ -46,7 +46,7 @@ void BulletSimulation::Clear() {
 void BulletSimulation::FireTick(btDynamicsWorld* world, btScalar time_step) {
     BulletSimulationListenerList::iterator it;
     for (it = listeners_.begin(); it != listeners_.end(); ++it) {
-        (*it)->Tick(time_step);
+        (*it)->Tick(world, time_step);
     }
 }
 
