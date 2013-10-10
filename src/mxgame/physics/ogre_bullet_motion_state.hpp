@@ -33,11 +33,9 @@ namespace mxgame {
 
 class OgreBulletMotionState : public btMotionState {
     public:
-        OgreBulletMotionState()
-                : node_(NULL) {}
-
-        OgreBulletMotionState(Ogre::SceneNode* node)
-                : node_(node) {}
+        OgreBulletMotionState(Ogre::SceneNode* node=NULL,
+            const btTransform& initial_transform=btTransform::getIdentity())
+                : node_(node), initial_transform_(initial_transform) {}
 
         virtual ~OgreBulletMotionState() {}
 
@@ -45,12 +43,12 @@ class OgreBulletMotionState : public btMotionState {
 
         inline void set_node(Ogre::SceneNode* node) { node_ = node; }
 
-        virtual void getWorldTransform(btTransform& world_transform) const {
-            btVector3 position = vector::Convert(node_->getPosition());
-            btQuaternion rotation =
-               quaternion::Convert(node_->getOrientation());
+        inline void set_initial_transform(const btTransform& transform) {
+            initial_transform_ = transform;
+        }
 
-            world_transform = btTransform(rotation, position);
+        virtual void getWorldTransform(btTransform& world_transform) const {
+            world_transform = initial_transform_;
         }
 
         virtual void setWorldTransform(const btTransform& world_transform) {
@@ -68,6 +66,7 @@ class OgreBulletMotionState : public btMotionState {
 
     private:
         Ogre::SceneNode* node_;
+        btTransform initial_transform_;
 };
 
 } /* namespace mxgame */

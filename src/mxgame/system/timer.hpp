@@ -24,6 +24,8 @@ namespace mxgame {
 
 class Timer {
     public:
+        virtual ~Timer() {}
+
         virtual unsigned long ticks() = 0;
 
         virtual void Reset() = 0;
