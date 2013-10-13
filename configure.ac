@@ -69,8 +69,6 @@ fi
 
 # Output files.
 AC_CONFIG_HEADERS([src/mxgame/config.h])
-AC_CONFIG_FILES([
-    Makefile
-])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
