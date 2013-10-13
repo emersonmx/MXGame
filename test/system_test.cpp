@@ -18,10 +18,15 @@
 */
 
 #include <cstdio>
+
+#include "mxgame/config.h"
+
 #include "mxgame/application/application.hpp"
 #include "mxgame/system/clock.hpp"
 #include "mxgame/system/system_timer.hpp"
+#ifdef HAVE_BOOST_ASIO
 #include "mxgame/system/boost_timer.hpp"
+#endif /* HAVE_BOOST_ASIO */
 #include "mxgame/system/timer.hpp"
 
 using namespace mxgame;
@@ -77,6 +82,7 @@ class SystemTimerApplication : public BaseApplication {
         }
 };
 
+#ifdef HAVE_BOOST_ASIO
 class BoostTimerApplication : public BaseApplication {
     protected:
         virtual void Initialize() {
@@ -86,18 +92,28 @@ class BoostTimerApplication : public BaseApplication {
             BaseApplication::Initialize();
         }
 };
+#endif /* HAVE */
 
 int main() {
+#ifdef HAVE_BOOST_ASIO
     mxgame::Application* boost_timer_application = new BoostTimerApplication();
+#endif /* HAVE_BOOST_ASIO */
+
     mxgame::Application* system_timer_application = new SystemTimerApplication();
 
+#ifdef HAVE_BOOST_ASIO
     printf("Running BoostTimerApplication\n");
     boost_timer_application->Run();
+#endif /* HAVE_BOOST_ASIO */
+
     printf("Running SystemTimerApplication\n");
     system_timer_application->Run();
 
     delete system_timer_application;
+
+#ifdef HAVE_BOOST_ASIO
     delete boost_timer_application;
+#endif /* HAVE_BOOST_ASIO */
 
     return 0;
 }

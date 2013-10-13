@@ -1,3 +1,12 @@
+# Vim files
+*.swp
+.vimsession
+.vimproject
+tags
+
+# Git files
+*.orig
+
 # Compiled Object files
 *.slo
 *.lo
@@ -10,17 +19,6 @@
 *.lai
 *.la
 *.a
-
-# Vim files
-*.swp
-.vimsession
-tags
-
-# Git files
-*.orig
-
-# Packages
-*.tar.gz
 
 # Project files
 autom4te.cache/
@@ -38,8 +36,15 @@ config.h*
 *.libs/
 Makefile
 Makefile.in*
+.dirstamp
 
-# Test files
+# Packages
+*.tar.gz
+
+# Miscellaneous
+*.log
+
+# Binary files
 test/application_test
 test/system_test
 test/util_test
