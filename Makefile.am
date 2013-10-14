@@ -131,7 +131,7 @@ TESTS  = $(MXGAME_TESTS)
 check_PROGRAMS = $(MXGAME_TESTS)
 
 AM_LDFLAGS += \
-    -Lmxgame/system
+    -Lmxgame/system/
 
 test_application_test_SOURCES = test/application_test.cpp
 
