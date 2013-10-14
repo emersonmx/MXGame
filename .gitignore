@@ -43,6 +43,7 @@ Makefile.in*
 
 # Miscellaneous
 *.log
+mxgame-1.0/
 
 # Binary files
 test/application_test
