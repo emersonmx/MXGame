@@ -17,8 +17,6 @@ endif
 AM_CXXFLAGS = \
     -Wall
 
-AM_LDFLAGS =
-
 lib_LTLIBRARIES =
 # }}}
 
@@ -130,19 +128,16 @@ MXGAME_TESTS = \
 TESTS  = $(MXGAME_TESTS)
 check_PROGRAMS = $(MXGAME_TESTS)
 
-AM_LDFLAGS += \
-    -Lmxgame/system/
-
 test_application_test_SOURCES = test/application_test.cpp
 
 test_system_test_SOURCES = test/system_test.cpp
 test_system_test_LDADD = \
     -lboost_chrono \
-    -lmxgame_system
+    mxgame/system/libmxgame_system.la
 
 if WITH_BOOST
 test_system_test_LDADD += \
-    -lmxgame_system_boost_timer
+    mxgame/system/libmxgame_system_boost_timer.la
 endif
 
 test_util_test_SOURCES = test/util_test.cpp
