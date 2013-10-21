@@ -1,5 +1,5 @@
 mxgame
-=========
+======
 
 mxgame is a project with snippets for game development.
 
