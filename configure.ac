@@ -52,7 +52,7 @@ AS_IF([test "x$with_boost" != "xno"], [
 # Checks for library functions.
 
 # Output files.
-AC_CONFIG_FILES([Makefile])
 AC_CONFIG_HEADERS([mxgame/config.h])
+AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
 
