@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <mxgame/application/application.hpp>
 #include <mxgame/exception/exception.hpp>
+#include <mxgame/util/util.hpp>
 
 using namespace mxgame;
 
@@ -46,6 +47,8 @@ class ApplicationTest : public Application {
             count_++;
 
             printf("%d. Update()\n", count_);
+
+            Render();
         }
 
         virtual void Render() {
@@ -66,8 +69,9 @@ class ApplicationTestError : public ApplicationTest {
             ApplicationTest::Update();
 
             if (count_ > max_count_ / 2) {
-                throw Exception("Exception occurred - "
-                                "Update(): count > max_count_ / 2");
+                throw Exception("Exception occurred on "
+                    + std::string(__FILE__) + ":" + ToString(__LINE__) +
+                    " - Update(): count > max_count_ / 2");
             }
         }
 };
@@ -83,7 +87,11 @@ int main() {
 
     application = new ApplicationTestError(10);
 
-    error_code = application->Run();
+    try {
+        error_code = application->Run();
+    } catch (Exception& exception) {
+        printf("Caugth exception: %s\n", exception.what());
+    }
     printf("Error: %d\n", error_code);
 
     delete application;

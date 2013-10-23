@@ -58,6 +58,9 @@ class BaseApplication : public mxgame::Application {
             printf("%d/%d. Update()\n", count_, max_count_);
             int delay = rand() % 50;
             printf("Delay: %d\n", delay);
+
+            Render();
+
             timer_->Delay(delay);
         }
 

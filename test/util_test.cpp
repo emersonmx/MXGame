@@ -40,6 +40,8 @@ class TestApplication : public mxgame::Application {
             if (count_ > 10) {
                 Exit(0);
             }
+
+            Render();
         }
 
         virtual void Render() {
