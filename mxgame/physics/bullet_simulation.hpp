@@ -31,23 +31,21 @@ namespace mxgame {
 
 class BulletSimulation {
     public:
-        static void Setup(btDynamicsWorld* world, bool pre_tick=false);
+        void Setup(btDynamicsWorld* world, bool pre_tick=false);
 
-        static void Add(BulletSimulationListener* listener);
+        void Add(BulletSimulationListener* listener);
 
-        static void Remove(BulletSimulationListener* listener);
+        void Remove(BulletSimulationListener* listener);
 
-        static void Clear();
+        void Clear();
+
+        void FireTick(btDynamicsWorld* world, btScalar time_step);
 
     private:
         typedef std::list<BulletSimulationListener*>
         BulletSimulationListenerList;
 
-        BulletSimulation() {}
-
-        static void FireTick(btDynamicsWorld* world, btScalar time_step);
-
-        static BulletSimulationListenerList listeners_;
+        BulletSimulationListenerList listeners_;
 };
 
 } /* namespace mxgame */

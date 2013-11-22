@@ -21,10 +21,14 @@
 
 namespace mxgame {
 
-BulletSimulation::BulletSimulationListenerList BulletSimulation::listeners_;
+void TickCallback(btDynamicsWorld* world, btScalar time_step) {
+    BulletSimulation* simulation =
+        static_cast<BulletSimulation*>(world->getWorldUserInfo());
+    simulation->FireTick(world, time_step);
+}
 
 void BulletSimulation::Setup(btDynamicsWorld* world, bool pre_tick) {
-    world->setInternalTickCallback(BulletSimulation::FireTick, NULL, pre_tick);
+    world->setInternalTickCallback(TickCallback, this, pre_tick);
 }
 
 void BulletSimulation::Add(BulletSimulationListener* listener) {
