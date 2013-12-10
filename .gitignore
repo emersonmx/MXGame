@@ -37,6 +37,7 @@ config.h*
 Makefile
 Makefile.in*
 .dirstamp
+*.pc
 
 # Packages
 *.tar.gz

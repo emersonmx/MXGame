@@ -23,6 +23,22 @@ AM_PROG_AR
 AC_PROG_LIBTOOL
 LT_INIT
 
+# Guess the operating system of the user.
+case "$host" in
+    *-*-mingw*|*-*-cygwin*)
+        AC_DEFINE(PLATFORM_WINDOWS, 1, [Platform is Windows])
+        ;;
+    *-*-linux*)
+        AC_DEFINE(PLATFORM_LINUX, 1, [Platform is Linux])
+        ;;
+    *-*-darwin*)
+        AC_DEFINE(PLATFORM_APPLE, 1, [Platform is Apple])
+        ;;
+    *)
+        AC_MSG_WARN([Your platform is not currently supported])
+        ;;
+esac
+
 # Checks for libraries.
 AS_IF([test "x$with_bullet" != "xno"], [
     PKG_CHECK_MODULES([BULLET], [bullet >= 2.80], [
@@ -53,6 +69,6 @@ AS_IF([test "x$with_boost" != "xno"], [
 
 # Output files.
 AC_CONFIG_HEADERS([mxgame/config.h])
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile mxgame.pc])
 AC_OUTPUT
 

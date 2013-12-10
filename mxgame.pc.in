@@ -1,0 +1,5 @@
+Name: mxgame
+Description: mxgame is a project with snippets for game development.
+Version: @PACKAGE_VERSION@
+Cflags:
+Libs:
