@@ -4,7 +4,7 @@ AC_INIT([mxgame], [1.0], [emersonmx@gmail.com], [],
 AC_PREREQ(2.5)
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([1.11 -Wall foreign subdir-objects silent-rules])
+AM_INIT_AUTOMAKE([1.11 foreign subdir-objects silent-rules])
 AM_SILENT_RULES([yes])
 
 # Configure options
