@@ -37,7 +37,7 @@ class Application {
             Initialize();
 
             while (running_) {
-                Tick();
+                Update();
             }
 
             Finalize();
@@ -53,7 +53,7 @@ class Application {
     protected:
         virtual void Initialize() = 0;
 
-        virtual void Tick() = 0;
+        virtual void Update() = 0;
 
         virtual void Finalize() throw() = 0;
 
