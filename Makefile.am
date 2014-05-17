@@ -2,8 +2,7 @@
 ACLOCAL_AMFLAGS = -I m4
 
 AM_CPPFLAGS = \
-    -Wall \
-    -Werror
+    -Wall
 
 if WITH_OGRE
 AM_CPPFLAGS += \
@@ -16,8 +15,7 @@ AM_CPPFLAGS += \
 endif
 
 AM_CXXFLAGS = \
-    -Wall \
-    -Werror
+    -Wall
 
 lib_LTLIBRARIES =
 # }}}

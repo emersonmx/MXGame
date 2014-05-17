@@ -45,7 +45,7 @@ class Application {
             return error_code_;
         }
 
-        inline void Exit(int error_code=EXIT_SUCCESS) {
+        inline void Exit(const int error_code=EXIT_SUCCESS) {
             error_code_ = error_code;
             running_ = false;
         }
